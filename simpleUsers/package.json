@@ -1,0 +1,17 @@
+{
+  "name": "simpleusers",
+  "version": "1.0.0",
+  "description": "Run the app:\r npm init-y\r npm install express\r node serser.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
