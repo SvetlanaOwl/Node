@@ -7,5 +7,16 @@
 </head>
 <body>
     <h2>This is Viewer page. Only accessible to users with the  'viewer' role.</h2>
+    <script>
+        const role = localStorage.getItem("role");
+        if (role !== "viewer") {
+            alert("Access denied. Redirecting to login page.");
+            window.location.href = "/index.html";
+        }
+        function logout() {
+            localStorage.removeItem("role");
+            window.location.href = "/index.html";
+        }
+    </script>
 </body>
 </html>
