@@ -8,13 +8,25 @@
 <body>
     <h2>This is Editor page. Only accessible to users with the  'editor' role.</h2>
     <script>
-        const role = localStorage.getItem("role");
-        if (role !== "editor") {
-            alert("Access denied. Redirecting to login page.");
-            window.location.href = "/index.html";
+        async function checkAccess() {
+            const token = localStorage.getItem("authToken");
+            if (!token) return (window.location.href = "/index.html");
+
+            const res = await fetch("/verify", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ token })
+            });
+
+            const json = await res.json();
+            if (!json.valid || json.role !== "editor") {
+                window.location.href = "/index.html";
+            }
         }
+
+        checkAccess();
         function logout() {
-            localStorage.removeItem("role");
+            localStorage.removeItem("authToken");
             window.location.href = "/index.html";
         }
     </script>

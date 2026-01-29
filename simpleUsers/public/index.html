@@ -38,26 +38,18 @@
             // In a real application, use secure methods to handle token
             // Записать токен в localStorage
             // В живом приложении используй безопасные методы для обработки токенов!
-            localStorage.setItem("role", json.role);
-            //Role-based redirest
-            switch (json.role) {
-                case "admin":
-                    window.location.href = "/admin.html";
-                    break;
-                case "editor":
-                    window.location.href = "/editor.html";
-                    break;
-                case "viewer":
-                    window.location.href = "/viewer.html";
-                    break;
-                default:
-                    window.location.href = "/dashboard.html";
-            }
-        } else {
-            result.textContent = json.message;
-            result.style.color =  "red";
-        }
-        });
+            localStorage.setItem("authToken", json.token);
+
+        const [, role] = json.token.split("|"); // username|role|sig
+
+        if (role === "admin") window.location.href = "/admin.html";
+        else if (role === "editor") window.location.href = "/editor.html";
+        else if (role === "viewer") window.location.href = "/viewer.html";
+    } else {
+        result.textContent = json.message;
+        result.style.color = "red";
+    }
+});
     </script>
 </body>
 </html>
