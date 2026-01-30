@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const crypto = require("crypto"); //crypto module for hashing
+const { timeStamp } = require("console");
 const app = express();
 const PORT = 3000;
 
@@ -59,5 +60,14 @@ app.post("/verify", (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
+});
+
+// Status check route
+// маршрут проверки статуса
+app.get("/status", (req, res) => {
+    res.json({
+    status: "OK",
+    timestamp: new Date().toLocaleDateString()
+    });
 });
 

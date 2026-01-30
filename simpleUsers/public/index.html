@@ -25,6 +25,9 @@
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
 
+        console.log("User: ", data);
+       
+
         const res = await fetch("/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
