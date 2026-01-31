@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sea Crafts</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        img {
+            width: 120px;
+            height: auto;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
     <h2>List of Sea Crafts</h2>
@@ -19,11 +36,20 @@
 
             Object.values(data).forEach(craft => {
                 const li = document.createElement("li");
-                li.textContent = craft;
+
+                const img = document.createElement("img");
+                img.src = craft.image;
+                img.alt = craft.name;
+
+                const label = document.createElement("span");
+                label.textContent = craft.name;
+
+                li.appendChild(img);
+                li.appendChild(label);
                 list.appendChild(li);
             });
         }
-
+        
         loadCrafts();
     </script>
 </body>
