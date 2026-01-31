@@ -13,7 +13,17 @@ const users = {
   john: { password: "qwerty", role: "viewer" }
 };
 
-// Signed token helpers
+//seacraft types
+//типы морских судов
+const seacrafts = {
+    1: "Sailboat",
+    2: "Submarine",
+    3: "Cargo Ship",
+    4: "Fishing Trawler",
+    5: "Speedboat"
+};
+
+ // Signed token helpers
 // помощники для подписанных токенов
 
 const SECRET = "SUPER_SECRET_KEY";
@@ -70,4 +80,13 @@ app.get("/status", (req, res) => {
     timestamp: new Date().toLocaleDateString()
     });
 });
+
+//Seacrafts route
+ // маршрут морских судов
+ app.get("/seacrafts", (req, res) => {
+    res.json(seacrafts);
+ });
+
+
+
 

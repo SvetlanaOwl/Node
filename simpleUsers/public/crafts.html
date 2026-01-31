@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>List of Sea Crafts</h2>
+
+    <ul id="craftList"></ul>
+
+    <script>
+        async function loadCrafts() {
+            const res = await fetch("/seaCrafts");
+            const data = await res.json();
+
+            const list = document.getElementById("craftList");
+
+            Object.values(data).forEach(craft => {
+                const li = document.createElement("li");
+                li.textContent = craft;
+                list.appendChild(li);
+            });
+        }
+
+        loadCrafts();
+    </script>
+</body>
+</html>
