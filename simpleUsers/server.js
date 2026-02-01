@@ -1,39 +1,12 @@
 const express = require("express");
 const path = require("path");
 const crypto = require("crypto"); //crypto module for hashing
+const users = require("./data/users");
 const { timeStamp } = require("console");
 const app = express();
 const PORT = 3000;
 
-// A – simple in-memory user store
-//  хранилище пользователей.
-const users = {
-  alex: { password: "1234", role: "admin" },
-  sveta: { password: "pass", role: "editor" },
-  john: { password: "qwerty", role: "viewer" }
-};
-
-//seacraft types
-//типы морских судов
-const seacrafts = {
-    1: "Sailboat",
-    2: "Submarine",
-    3: "Cargo Ship",
-    4: "Fishing Trawler",
-    5: "Speedboat"
-};
-
-// sea craft types
-// типы морских судов
-const seacraft = {
-    1: { name: "Sailboat", image: "/images/sailboat.jpg" },
-    2: { name: "Submarine", image: "/images/submarine.jpg" },
-    3: { name: "Cargo Ship", image: "/images/cargo.jpg" },
-    4: { name: "Fishing Trawler", image: "/images/trawler.jpg" },
-    5: { name: "Speedboat", image: "/images/speedboat.jpg" }
-};
-
- // Signed token helpers
+// Signed token helpers
 // помощники для подписанных токенов
 
 const SECRET = "SUPER_SECRET_KEY";
@@ -91,12 +64,22 @@ app.get("/status", (req, res) => {
     });
 });
 
-//Seacrafts route
- // маршрут морских судов
- app.get("/seacrafts", (req, res) => {
-    res.json(seacrafts);
- });
+//Mount seacrafts route
+//Закрепить маршрут морских судов
+const seacraftsRoute = require("./routes/seacrafts");
+app.use("/seacrafts", seacraftsRoute);
 
+//Users route (admin only)
+//маршрут пользователей (только для администраторов)
+app.post("/users", (req, res) => {
+    const { token } = req.body;
+    const valid = verifyToken(token);
 
+    if (!valid || valid.role !== "admin") {
+        return res.status(403).json({ error: "Forbidden"});
+    }
+
+    res.json(users);
+});
 
 
