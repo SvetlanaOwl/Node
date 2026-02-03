@@ -8,16 +8,33 @@
 <body>
     <h2>This is Admin page. Only accessible to users with the  'admin' role.</h2>
     <button onclick="logout()">Logout</button>
+    <button onclick="location.href='/adminpanel.html'">Go to Admin Panel</button>
+    <button onclick="location.href='/index.html'">Go to Home Page</button>
+    <button onclick="location.href='/crafts.html'">Go to Crafts Page</button>
+</body>
     <script>
-        const role = localStorage.getItem("role");
-        if (role !== "admin") {
-            alert("Access denied. Redirecting to login page.");
-            window.location.href = "/index.html";
+        async function checkAccess() {
+            const token = localStorage.getItem("authToken");
+            if (!token) return (window.location.href = "/index.html");
+
+            const res = await fetch("/verify", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ token })
+            });
+
+            const json = await res.json();
+            
+            if (!json.valid || json.role !== "admin") {
+                window.location.href = "/index.html";
+            }
         }
+
+        checkAccess();
+
         function logout() {
-            localStorage.removeItem("role");
+            localStorage.removeItem("authToken");
             window.location.href = "/index.html";
         }
     </script>
-</body>
 </html>
