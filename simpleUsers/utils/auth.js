@@ -12,6 +12,8 @@ function makeToken(username, role) {
 
 function verifyToken(token) {
     const [username, role, sig] = token.split("|");
+    //if (!token) return null;
+    //const [username, role, sig] = token.split("|");
     const check = crypto.createHmac("sha256", SECRET).update(`${username}|${role}`).digest("hex");
     return sig === check ? { username, role } : null;
 }

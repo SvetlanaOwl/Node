@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body>
+  <h2>Admin Panel</h2>
+  <p id="status">Checking access...</p>
+
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <br>
+  <button onclick="logout()">Logout</button>
+
+  <!-- Modal -->
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal">
+      <h3>Change Password</h3>
+
+      <label>New Password:</label>
+      <input id="modal-password" type="password">
+
+      <button onclick="submitPasswordChange()">Save</button>
+      <button class="close-btn" onclick="closeModal()">Cancel</button>
+
+      <p id="modal-result"></p>
+    </div>
+  </div>
+
+  <script>
+    let selectedUser = null;
+
+    async function checkAccess() {
+      const token = localStorage.getItem("authToken");
+      if (!token) return redirect();
+
+      const verifyRes = await fetch("/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token })
+      });
+
+      const verifyJson = await verifyRes.json();
+      if (!verifyJson.valid || verifyJson.role !== "admin") {
+        return redirect();
+      }
+
+      document.getElementById("status").textContent = "Access granted";
+
+      loadUsers(token);
+    }
+
+    async function loadUsers(token) {
+      const res = await fetch("/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        tbody: JSON.stringify({ token })
+      });
+
+      const users = await res.json();
+      const tbody = document.querySelector("#userTable tbody");
+      tbody.innerHTML = "";
+
+      Object.entries(users).forEach(([username, data]) => {
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+          <td>${username}</td>
+          <td>${data.role}</td>
+          <td><button onclick="openModal('${username}')">Change Password</button></td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function openModal(username) {
+      selectedUser = username;
+      document.getElementById("modal-bg").style.display = "flex";
+      document.getElementById("modal-password").value = "";
+      document.getElementById("modal-result").textContent = "";
+    }
+
+    function closeModal() {
+      document.getElementById("modal-bg").style.display = "none";
+    }
+
+    async function submitPasswordChange() {
+      const newPassword = document.getElementById("modal-password").value;
+      const token = localStorage.getItem("authToken");
+
+      const res = await fetch("/users/change-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token,
+          username: selectedUser,
+          newPassword
+        })
+      });
+
+      const data = await res.json();
+      const result = document.getElementById("modal-result");
+
+      if (data.success) {
+        result.style.color = "green";
+        result.textContent = data.message;
+      } else {
+        result.style.color = "red";
+        result.textContent = data.error || "Something went wrong";
+      }
+    }
+
+    function redirect() {
+      window.location.href = "/index.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("authToken");
+      redirect();
+    }
+
+    checkAccess();
+  </script>
+</body>
+</html>
