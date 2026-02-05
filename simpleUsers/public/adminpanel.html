@@ -64,7 +64,7 @@
         const res = await fetch("/users", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            tbody: JSON.stringify({ token })
+            body: JSON.stringify({ token })
         });
 
         const users = await res.json();

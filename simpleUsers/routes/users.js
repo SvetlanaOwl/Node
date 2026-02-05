@@ -17,31 +17,7 @@ router.post("/", (req, res) => {
 });
 
 // POST /users/change-password - изменение пароля пользователя (только для администраторов)
-router.post("/change-password", (req, res) => {
-  const { token, username, newPassword } = req.body;
-
-  const valid = verifyToken(token);
-
-  // Only admins can change passwords
-  if (!valid || valid.role !== "admin") {
-    return res.status(403).json({ error: "Forbidden" });
-  }
-
-  // Check if user exists
-  if (!users[username]) {
-    return res.status(404).json({ error: "User not found" });
-  }
-
-  // Update password
-  users[username].password = newPassword;
-
-  res.json({
-    success: true,
-    message: `Password updated for user: ${username}`
-  });
-});
-
-/*const { loadUsers, saveUsers } = require("../utils/userStore");
+const { loadUsers, saveUsers } = require("../utils/userStore");
 
 router.post("/change-password", (req, res) => {
   const { token, username, newPassword } = req.body;
@@ -64,6 +40,6 @@ router.post("/change-password", (req, res) => {
     success: true,
     message: `Password updated for user: ${username}`
   });
-});*/
+});
 
 module.exports = router;

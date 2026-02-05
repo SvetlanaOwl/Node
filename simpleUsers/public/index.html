@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Login</title>
+  <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
+
     <h2>Login</h2>
 
     <form id="loginForm">
@@ -16,32 +18,31 @@
     <p id="result"></p>
 
     <script>
+
+  //const form = document.getElementById("loginForm");
         const form = document.getElementById("loginForm");
+  console.log(form);
+  //const result = document.getElementById("result");
         const result = document.getElementById("result");
+  console.log(result);
 
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-
+    const formData = new FormData(form); // create FormData object from form
+    const data = Object.fromEntries(formData); // fill data object with form entries
         console.log("User: ", data);
        
-
-        const res = await fetch("/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
+    const res = await fetch("/login", { // send login data to server
+        method: "POST", // use POST method
+        headers: { "Content-Type": "application/json" }, // set content type to JSON
+        body: JSON.stringify(data) // send data as JSON string
         });
 
-        const json = await res.json();
+    const json = await res.json(); // parse response as JSON
 
         if (json.success) {
-            // Store a simple token (for demonstration purposes)
-            // In a real application, use secure methods to handle token
-            // Записать токен в localStorage
-            // В живом приложении используй безопасные методы для обработки токенов!
-            localStorage.setItem("authToken", json.token);
+      localStorage.setItem("authToken", json.token); // store auth token in localStorage
 
         const [, role] = json.token.split("|"); // username|role|sig
 
