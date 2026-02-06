@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
+    <div id="header" class="header"></div>
+    <script src="/js/header.js"></script>
+    <script>loadHeader()</script>
     <h2>This is Admin page. Only accessible to users with the  'admin' role.</h2>
     <button onclick="logout()">Logout</button>
     <button onclick="location.href='/adminpanel.html'">Go to Admin Panel</button>

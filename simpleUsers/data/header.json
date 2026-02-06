@@ -1,0 +1,27 @@
+[
+    {
+        "label": "Home",
+        "href": "/index.html",
+        "roles": ["admin", "editor", "viewer"]
+    },
+    {
+        "label": "Sea Crafts",
+        "href": "/crafts.html",
+        "roles": ["admin", "editor", "viewer"]
+    },
+    {
+        "label": "Admin Panel",
+        "href": "/adminpanel.html",
+        "roles": ["admin"]
+    },
+    {
+        "label": "Status",
+        "href": "/status.html",
+        "roles": ["admin", "editor"]
+    },
+    {
+        "label": "Profile",
+        "href": "/profile.html",
+        "roles": ["admin", "editor", "viewer"]
+    }
+]
