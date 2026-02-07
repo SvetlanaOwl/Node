@@ -8,7 +8,7 @@ const path = require("path");
 
 router.get("/", (req, res) => {
     const filePath = path.join(__dirname, "../data/header.json");
-    const raw = fs.readFileSync(filePath, utf8);
+    const raw = fs.readFileSync(filePath, "utf8");
     const items = JSON.parse(raw);
     res.json(items)
 });
