@@ -4,56 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Login</title>
-  <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
 
-    <h2>Login</h2>
+    <!--<h2>Login</h2>
 
     <form id="loginForm">
         <input type="text" name="username" placeholder="Username" required /><br><br>
         <input type="password" name="password" placeholder="Password" required /><br><br>
         <button type="submit">Log In</button>
     </form>
-    <p id="result"></p>
+    <p id="result"></p>-->
+
+    <div class="login-container">
+        <h2>Welcome Back</h2>
+
+        <div class="login-box">
+            <input id="username" type="text"  placeholder="Username">
+            <input id="password" type="password" placeholder="Password">
+            <button onclick="login()">Log In</button>
+
+            <p id="login-result"></p>
+        </div>
+    </div>
 
     <script>
 
-  //const form = document.getElementById("loginForm");
-        const form = document.getElementById("loginForm");
-  console.log(form);
-  //const result = document.getElementById("result");
-        const result = document.getElementById("result");
-  console.log(result);
+        async function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+                       
+        const res = await fetch("/login", { // send login data to server
+            method: "POST", // use POST method
+            headers: { "Content-Type": "application/json" }, // set content type to JSON
+            body: JSON.stringify( {username, password} ) // send data as JSON string
+            });
 
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
+        const json = await res.json(); // parse response as JSON
 
-    const formData = new FormData(form); // create FormData object from form
-    const data = Object.fromEntries(formData); // fill data object with form entries
-        console.log("User: ", data);
-       
-    const res = await fetch("/login", { // send login data to server
-        method: "POST", // use POST method
-        headers: { "Content-Type": "application/json" }, // set content type to JSON
-        body: JSON.stringify(data) // send data as JSON string
-        });
+            if (json.success) {
+                localStorage.setItem("authToken", json.token); // store auth token in localStorage
 
-    const json = await res.json(); // parse response as JSON
+                const [, role] = json.token.split("|"); // username|role|sig
 
-        if (json.success) {
-      localStorage.setItem("authToken", json.token); // store auth token in localStorage
-
-        const [, role] = json.token.split("|"); // username|role|sig
-
-        if (role === "admin") window.location.href = "/admin.html";
-        else if (role === "editor") window.location.href = "/editor.html";
-        else if (role === "viewer") window.location.href = "/viewer.html";
-    } else {
-        result.textContent = json.message;
-        result.style.color = "red";
-    }
-});
+                if (role === "admin") window.location.href = "/admin.html";
+                else if (role === "editor") window.location.href = "/editor.html";
+                else if (role === "viewer") window.location.href = "/viewer.html";
+            } else {
+                result.textContent = json.message;
+                result.style.color = "red";
+            }
+        };
     </script>
 </body>
 </html>
