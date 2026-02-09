@@ -15,7 +15,8 @@ async function loadHeader() {
     const res = await fetch("/header");
     const items = await res.json();
 
-    const nav = document.getElementById("header");
+    const left = document.getElementById("header-left");
+    const right = document.getElementById("header-right");
 
     items
     .filter(item => item.roles.includes(role))
@@ -23,6 +24,21 @@ async function loadHeader() {
         const a = document.createElement("a");
         a.href = item.href;
         a.textContent = item.label;
-        nav.appendChild(a);
+        left.appendChild(a);
     });
+
+    //right side: profile + logout
+    const profile = document.createElement("a");
+    profile.href = "/profile.html";
+    profile.textContent = "Profile";
+    right.appendChild(profile);
+
+    const logoutBtn = document.createElement("button");
+    logoutBtn.textContent = "Logout";
+    logoutBtn.className = "logout-btn";
+    logoutBtn.onclick = () => {
+        localStorage.removeItem("authToken");
+        window.location.href = "/index.html";
+    };
+    right.appendChild(logoutBtn);
 }

@@ -1,16 +1,35 @@
 .header {
     background: #2d6cdf;
-    padding: 12px;
+    padding: 12px 20px;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header a {
+.header-left a,
+.header-right a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    margin-right: 20px;
 }
 
-.header a:hover {
-    text-decoration: underline;
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logout-btn {
+    background: #ff4d4d;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background: #d93636;
 }
