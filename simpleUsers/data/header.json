@@ -18,10 +18,5 @@
         "label": "Status",
         "href": "/status.html",
         "roles": ["admin", "editor"]
-    },
-    {
-        "label": "Profile",
-        "href": "/profile.html",
-        "roles": ["admin", "editor", "viewer"]
-    }
+    }    
 ]

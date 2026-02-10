@@ -10,11 +10,17 @@ function makeToken(username, role) {
     return `${data}|${sig}`;
 }
 
+//Token verification - проверка токена
 function verifyToken(token) {
+    if (!token || typeof token !== "string") return null;
+
     const [username, role, sig] = token.split("|");
-    //if (!token) return null;
-    //const [username, role, sig] = token.split("|");
-    const check = crypto.createHmac("sha256", SECRET).update(`${username}|${role}`).digest("hex");
+
+    const check = crypto
+    .createHmac("sha256", SECRET)
+    .update(`${username}|${role}`)
+    .digest("hex");
+    
     return sig === check ? { username, role } : null;
 }
 

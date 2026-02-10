@@ -33,7 +33,8 @@ router.post("/verify", (req, res) => {
 
     res.json({
         valid: !!valid,
-        role: valid?.role || null
+        role: valid?.role || null,
+        username: valid?.username || null
     });
 });
 

@@ -10,6 +10,7 @@ async function loadHeader() {
 
     const verifyJson = await verifyRes.json();
     const role = verifyJson.role;
+    const username = verifyJson.username;
 
     //Get header config
     const res = await fetch("/header");
@@ -27,18 +28,41 @@ async function loadHeader() {
         left.appendChild(a);
     });
 
-    //right side: profile + logout
-    const profile = document.createElement("a");
-    profile.href = "/profile.html";
-    profile.textContent = "Profile";
-    right.appendChild(profile);
+    const dropdown = document.createElement("div");
+        dropdown.className = "profile-dropdown";
 
-    const logoutBtn = document.createElement("button");
-    logoutBtn.textContent = "Logout";
-    logoutBtn.className = "logout-btn";
-    logoutBtn.onclick = () => {
-        localStorage.removeItem("authToken");
-        window.location.href = "/index.html";
-    };
-    right.appendChild(logoutBtn);
-}
+        const avatar = document.createElement("div");
+        avatar.className = "avatar";
+        avatar.textContent = username ? username[0].toUpperCase() : "?";
+
+        const nameEl = document.createElement("div");
+        nameEl.className = "username";
+        nameEl.textContent = username || "User";
+
+        const menu = document.createElement("div");
+        menu.className = "dropdown-menu";
+
+        const profileLink = document.createElement("a");
+        profileLink.href = "/profile.html";
+        profileLink.textContent = "Profile";
+
+        const logoutBtn = document.createElement("button");
+        logoutBtn.textContent = "Logout";
+        logoutBtn.onclick = () => {
+            localStorage.removeItem("authToken");
+            window.location.href = "/index.html";
+        };
+
+        menu.appendChild(profileLink);
+        menu.appendChild(logoutBtn);
+
+        dropdown.appendChild(avatar);
+        dropdown.appendChild(nameEl);
+        dropdown.appendChild(menu);
+
+        dropdown.onclick = () => {
+            dropdown.classList.toggle("dropdown-open");
+        };
+
+        right.appendChild(dropdown);
+    }
