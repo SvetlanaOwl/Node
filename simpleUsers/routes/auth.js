@@ -1,6 +1,7 @@
 // routes/auth.js
 const express = require("express");
 const router = express.Router();
+const { loadUsers } = require("../utils/userStore");
 
 const users = require("../data/users");
 const { makeToken, verifyToken } = require("../utils/auth");
@@ -31,10 +32,21 @@ router.post("/verify", (req, res) => {
     const { token } = req.body;
     const valid = verifyToken(token);
 
+    if (!valid) {
+        return res.json({ valid: false });
+    }
+
+    const users = loadUsers();
+    const user = users[valid.username];
+
     res.json({
-        valid: !!valid,
-        role: valid?.role || null,
-        username: valid?.username || null
+        valid: true,
+        role: valid.role,
+        username: valid.username,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        description: user.description
     });
 });
 

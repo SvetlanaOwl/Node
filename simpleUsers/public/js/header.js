@@ -19,12 +19,19 @@ async function loadHeader() {
     const left = document.getElementById("header-left");
     const right = document.getElementById("header-right");
 
+    //create header links based on role
     items
     .filter(item => item.roles.includes(role))
     .forEach(item => {
         const a = document.createElement("a");
         a.href = item.href;
         a.textContent = item.label;
+
+        const current = window.location.pathname;
+        if (current === item.href) {
+            a.classList.add("active");
+        }
+
         left.appendChild(a);
     });
 

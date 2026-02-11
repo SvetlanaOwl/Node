@@ -1,12 +1,22 @@
 {
     "alex": {
         "password": "1234",
-        "role": "admin"
+        "role": "admin",
+        "firstName": "Alex",
+        "lastName": "Sensei",
+        "email": "alexsensei@mail.com",
+        "description": "Admin of the system"
     },
+
     "sveta": {
         "password": "pass",
-        "role": "editor"
+        "role": "editor",
+        "firstName": "Sveta",
+        "lastName": "Owl",
+        "email": "owl@mail.ru",
+        "description": "Undefined"
     },
+
     "john": {
         "password": "qwety",
         "role": "viewer"

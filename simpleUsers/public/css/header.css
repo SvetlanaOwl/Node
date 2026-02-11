@@ -97,3 +97,9 @@
 .dropdown-open .dropdown-menu {
     display: flex;
 }
+
+/*Active link styling*/
+.header-left a.active {
+    color: #f79256;
+    text-decoration: underline;
+}
