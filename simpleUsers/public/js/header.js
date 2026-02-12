@@ -38,38 +38,47 @@ async function loadHeader() {
     const dropdown = document.createElement("div");
         dropdown.className = "profile-dropdown";
 
-        const avatar = document.createElement("div");
+    // Avatar creation with fallback to first letter of username or "?" if not available
+    let avatar;
+
+    if (verifyJSON.avatar) {
+    avatar = document.createElement("img");
+    avatar.className = "avatar";
+    avatar.src = verifyJSON.avatar;
+    } else {
+        avatar = document.createElement("div");
         avatar.className = "avatar";
-        avatar.textContent = username ? username[0].toUpperCase() : "?";
-
-        const nameEl = document.createElement("div");
-        nameEl.className = "username";
-        nameEl.textContent = username || "User";
-
-        const menu = document.createElement("div");
-        menu.className = "dropdown-menu";
-
-        const profileLink = document.createElement("a");
-        profileLink.href = "/profile.html";
-        profileLink.textContent = "Profile";
-
-        const logoutBtn = document.createElement("button");
-        logoutBtn.textContent = "Logout";
-        logoutBtn.onclick = () => {
-            localStorage.removeItem("authToken");
-            window.location.href = "/index.html";
-        };
-
-        menu.appendChild(profileLink);
-        menu.appendChild(logoutBtn);
-
-        dropdown.appendChild(avatar);
-        dropdown.appendChild(nameEl);
-        dropdown.appendChild(menu);
-
-        dropdown.onclick = () => {
-            dropdown.classList.toggle("dropdown-open");
-        };
-
-        right.appendChild(dropdown);
+        avatar.textContent = username[0].toUpperCase();
     }
+
+    const nameEl = document.createElement("div");
+    nameEl.className = "username";
+    nameEl.textContent = username || "User";
+
+    const menu = document.createElement("div");
+    menu.className = "dropdown-menu";
+
+    const profileLink = document.createElement("a");
+    profileLink.href = "/profile.html";
+    profileLink.textContent = "Profile";
+
+    const logoutBtn = document.createElement("button");
+    logoutBtn.textContent = "Logout";
+    logoutBtn.onclick = () => {
+        localStorage.removeItem("authToken");
+        window.location.href = "/index.html";
+    };
+
+    menu.appendChild(profileLink);
+    menu.appendChild(logoutBtn);
+
+    dropdown.appendChild(avatar);
+    dropdown.appendChild(nameEl);
+    dropdown.appendChild(menu);
+
+    dropdown.onclick = () => {
+    dropdown.classList.toggle("dropdown-open");
+    };
+
+    right.appendChild(dropdown);
+}

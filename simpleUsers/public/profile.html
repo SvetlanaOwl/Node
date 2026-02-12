@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/header.js"></script>
 </head>
 <body>
     <div id="header" class="header">
@@ -36,31 +37,24 @@
                 <label>Description:</label>
                 <span id="description"></span>
             </div>
+
+            <div class="profile-avatar-section"></div>
+            <img id="avatarPreview" class="avatar-large" src="" alt="Avatar">
+
+            <form id="avatarForm">
+                <input type="avatarInput" name="avatar" accept="image/*">
+                <button class="upioad-button" type="submit">Upload new Avatar</button>
+            </form>
         </div>
     </div>
 
-    <script src="/js/header.js"></script>
-    <script>
+    <script type="module">
+        import { initAvatarUpload } from "/js/avatarUpload.js";
+        import { loadProfile } from "/js/loadProfile.js";
+
         loadHeader();
-
-        async function loadProfile() {
-            const token = localStorage.getItem("authToken");
-
-            const res = await fetch("/verify", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ token })
-            });
-
-            const json = await res.json();
-
-            document.getElementById("firstName").textContent = json.firstName || "-";
-            document.getElementById("lastName").textContent = json.lastName || "-";
-            document.getElementById("email").textContent = json.email || "-";
-            document.getElementById("description").textContent = json.description || "-";
-        }
-        
         loadProfile();
+        initAvatarUpload();
     </script>
 </body>
 </html>

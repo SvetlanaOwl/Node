@@ -14,12 +14,14 @@ const usersRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const statusRoute = require("./routes/status");
 const headerRoute = require("./routes/header");
+const avatarRoutes = require("./routes/avatar");
 
 app.use("/seacrafts", seacraftsRoute); // Mount seacrafts route - Закрепить маршрут морских судов
 app.use("/users", usersRoute); // Mount users route - Закрепить маршрут пользователей
 app.use("/", authRoute); // Mount auth route - Закрепить маршрут аутентификации
 app.use("/status", statusRoute); // Mount status route - Закрепить маршрут статуса
 app.use("/header", headerRoute); //Mount header route - закрепить маршрут заголовка
+app.use("/", avatarRoutes); //Mount avatar upload route - закрепить маршрут загрузки аватара
 
 // Start server - запуск сервера
 app.listen(PORT, () => {
