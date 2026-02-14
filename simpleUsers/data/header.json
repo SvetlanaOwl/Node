@@ -18,5 +18,10 @@
         "label": "Status",
         "href": "/status.html",
         "roles": ["admin", "editor"]
+    },    
+    {
+        "label": "Admin",
+        "href": "/admin.html",
+        "roles": ["admin"]
     }    
 ]

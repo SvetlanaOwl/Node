@@ -5,6 +5,7 @@
   <title>Admin Panel</title>
   <link rel="stylesheet" href="/css/admin.css">
   <link rel="stylesheet" href="/css/header.css">
+  <script src="/js/header.js"></script>
 </head>
 <body>
     <!--header Section-->
@@ -13,10 +14,11 @@
         <div class="header-left" id="header-left"></div>
         <div class="header-right" id="header-right"></div>
     </div>
-    <script src="/js/header.js"></script>
+    
     <script>loadHeader()</script>
   <h2>Admin Panel</h2>
   <p id="status">Checking access...</p>
+  <button id="addUserBtn" class="primary-btn">Add New User</button><br><br>
 
   <table id="userTable">
       <thead>
@@ -29,8 +31,7 @@
       <tbody></tbody>
   </table>
 
-  <br>
-  <button onclick="logout()">Logout</button>
+  
 
   <div class="modal-bg" id="modal-bg">
         <div class="modal">
@@ -46,10 +47,15 @@
         </div>
     </div>
 
+    <script type="module">
+        import { checkAccess } from "/js/checkAdminAccess.js";
+        checkAccess();
+    </script>
+
     <script>
         let selectedUser = null;
 
-        async function checkAccess() {
+        /*async function checkAccess() {
             const token = localStorage.getItem("authToken");
             if (!token) return redirect();
 
@@ -67,9 +73,9 @@
             document.getElementById("status").textContent = "Access granted";
             
             loadUsers(token);
-        }
+        }*/
    
-        async function loadUsers(token) {
+        /*async function loadUsers(token) {
         const res = await fetch("/users", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -90,7 +96,7 @@
             `;
             tbody.appendChild(tr);
         });
-    }
+        }*/
 
     function openModal(username) {
         selectedUser = username;
