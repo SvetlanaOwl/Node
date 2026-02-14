@@ -137,7 +137,7 @@
     background: #f79256;
 }
 
-input[type="file"]:file-select-button {
+input[type="file"]::file-selector-button {
     /* Basic styling */
     background-color: #2d6cdf; /* Green background */
     color: white; /* White text */

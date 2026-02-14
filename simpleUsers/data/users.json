@@ -1,24 +1,23 @@
 {
-    "alex": {
-        "password": "1234",
-        "role": "admin",
-        "firstName": "Alex",
-        "lastName": "Sensei",
-        "email": "alexsensei@mail.com",
-        "description": "Admin of the system"
-    },
-
-    "sveta": {
-        "password": "pass",
-        "role": "editor",
-        "firstName": "Sveta",
-        "lastName": "Owl",
-        "email": "owl@mail.ru",
-        "description": "Undefined"
-    },
-
-    "john": {
-        "password": "qwety",
-        "role": "viewer"
-    }
+  "alex": {
+    "password": "1234",
+    "role": "admin",
+    "firstName": "Alex",
+    "lastName": "Sensei",
+    "email": "alexsensei@mail.com",
+    "description": "Admin of the system",
+    "avatar": "/avatars/d79e02048d0c4a51c532b6c8f7d50203"
+  },
+  "sveta": {
+    "password": "pass",
+    "role": "editor",
+    "firstName": "Sveta",
+    "lastName": "Owl",
+    "email": "owl@mail.ru",
+    "description": "Undefined"
+  },
+  "john": {
+    "password": "qwety",
+    "role": "viewer"
+  }
 }

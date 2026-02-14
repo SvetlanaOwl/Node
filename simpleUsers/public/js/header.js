@@ -36,20 +36,20 @@ async function loadHeader() {
     });
 
     const dropdown = document.createElement("div");
-        dropdown.className = "profile-dropdown";
+    dropdown.className = "profile-dropdown";
 
     // Avatar creation with fallback to first letter of username or "?" if not available
     let avatar;
 
-    if (verifyJSON.avatar) {
+    if (verifyJson.avatar) {
     avatar = document.createElement("img");
     avatar.className = "avatar";
-    avatar.src = verifyJSON.avatar;
-    } else {
-        avatar = document.createElement("div");
-        avatar.className = "avatar";
-        avatar.textContent = username[0].toUpperCase();
-    }
+    avatar.src = verifyJson.avatar;
+        } else {
+            avatar = document.createElement("div");
+            avatar.className = "avatar";
+            avatar.textContent = username[0].toUpperCase();
+        }
 
     const nameEl = document.createElement("div");
     nameEl.className = "username";
