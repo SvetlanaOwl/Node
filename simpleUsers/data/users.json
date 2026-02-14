@@ -6,7 +6,7 @@
     "lastName": "Sensei",
     "email": "alexsensei@mail.com",
     "description": "Admin of the system",
-    "avatar": "/avatars/d79e02048d0c4a51c532b6c8f7d50203"
+    "avatar": "/avatars/3d24fb2e0bb819724ed5d2b0620fc14f"
   },
   "sveta": {
     "password": "pass",
@@ -14,7 +14,8 @@
     "firstName": "Sveta",
     "lastName": "Owl",
     "email": "owl@mail.ru",
-    "description": "Undefined"
+    "description": "Undefined",
+    "avatar": "/avatars/cf12c5eed30b2e00e5ba24f595e4dd66"
   },
   "john": {
     "password": "qwety",

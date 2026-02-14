@@ -46,7 +46,8 @@ router.post("/verify", (req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        description: user.description
+        description: user.description,
+        avatar: user.avatar || null // Return avatar or null if not set
     });
 });
 

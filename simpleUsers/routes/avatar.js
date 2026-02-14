@@ -17,7 +17,7 @@ router.post("/upload-avatar", upload.single("avatar"), (req, res) => {
     user.avatar = "/avatars/" + req.file.filename;
     saveUsers(users);
 
-    req.json({ success: true, avatar: user.avatar }); 
+    res.json({ success: true, avatar: user.avatar }); 
 });
 
 module.exports = router;
