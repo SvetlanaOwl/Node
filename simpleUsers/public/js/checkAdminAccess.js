@@ -1,3 +1,5 @@
+import { loadUsers } from "/js/loadUsers.js";
+
 export async function checkAccess() {
     const token = localStorage.getItem("authToken");
     if (!token) return redirect();
@@ -13,8 +15,8 @@ export async function checkAccess() {
         return redirect();
     }
 
-    //import { loadUsers } from "/js/loadUsers.js"; // так не работает
-    const { loadUsers } = await import("/js/loadUsers.js"); //await для ожидания завершения импорта
+    
+    //const { loadUsers } = await import("/js/loadUsers.js"); //await для ожидания завершения импорта
 
     document.getElementById("status").textContent = "Access granted";
             
