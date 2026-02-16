@@ -5,77 +5,57 @@
   <title>Admin Panel</title>
   <link rel="stylesheet" href="/css/admin.css">
   <link rel="stylesheet" href="/css/header.css">
-  <script src="/js/header.js"></script>
 </head>
 <body>
     <!--header Section-->
-    <!--<div id="header" class="header">-->
     <div id="header" class="header">
         <div class="header-left" id="header-left"></div>
         <div class="header-right" id="header-right"></div>
     </div>
     
-    <script>loadHeader()</script>
-  <h2>Admin Panel</h2>
-  <p id="status">Checking access...</p>
-  <button id="addUserBtn" class="primary-btn">Add New User</button><br><br>
-
-  <table id="userTable">
-      <thead>
-          <tr>
-              <th>Username</th>
-              <th>Role</th>
-              <th>Actions</th>
-          </tr>
-      </thead>
-      <tbody></tbody>
-  </table>
-
-  <div class="modal-bg" id="modal-bg">
-        <div class="modal">
+    <!--header ends-->
+    <h2>Admin Panel 3</h2>
+    <p id="status">Checking access...</p>
+    <button id="addUserBtn" class="primary-btn">Add New User</button><br><br>
+    <!--User table-->
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <!--Password change modal-->
+    <div class="modal-bg" id="modal-bg">
+        <div class="modal" id="passwordModal">
             <h3>Change Password</h3>
-
+    <!--Username (filed automatically when clicking Change Password)-->
+            <label>Username:</label>
+            <input id="passwordUsername" type="text" readonly>
+    
+    <!--New Password-->
             <label>New Password:</label>
-            <input id="modal-password" type="password">
-
-            <button onclick="submitPasswordChange()">Save</button>
-            <button class="close-btn" onclick="closeModal()">Cancel</button>
+            <input id="passwordNew" type="password">    
+    
+            <div class="modal-actions">
+                <button id="submitPasswordChange()">Submit</button>
+                <button id="closePasswordModal">Cancel</button>        
+            </div>
 
             <p id="modal-result"></p>
         </div>
-    </div>
+    </div>  
 
     <script type="module">
+        import { loadHeader } from "/js/header.js";
         import { checkAccess } from "/js/checkAdminAccess.js";
-        import { loadUsers } from "/js/loadUsers.js";
-        import { submitPasswordChange } from "/js/passwordChange.js";
-
+        import { initAdminPanel } from "/js/adminPanel.js";  
+        loadHeader();
         checkAccess();
-    </script>
-
-    <script>
-        let selectedUser = null;
-
-    function openModal(username) {
-        selectedUser = username;
-        document.getElementById("modal-bg").style.display = "flex";
-        document.getElementById("modal-password").value = "";
-        document.getElementById("modal-result").textContent = "";
-    }
-
-    function closeModal() {
-        document.getElementById("modal-bg").style.display = "none";
-    }
-    
-    function redirect() {
-        window.location.href = "/index.html";
-    }
-
-    function logout() {
-        localStorage.removeItem("authToken");
-        redirect();
-    }
-
+        initAdminPanel();
     </script>
 </body>
 </html>

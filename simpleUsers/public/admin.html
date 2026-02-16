@@ -5,46 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
     <!--header Section-->
-    <!--<div id="header" class="header">-->
     <div id="header" class="header">
         <div class="header-left" id="header-left"></div>
         <div class="header-right" id="header-right"></div>
     </div>
-    <script src="/js/header.js"></script>
-    <script>loadHeader()</script>
-
+    <!--header ends-->
     <h2>This is Admin page. Only accessible to users with the  'admin' role.</h2>
-    <!--<button onclick="logout()">Logout</button>
-    <button onclick="location.href='/adminpanel.html'">Go to Admin Panel</button>
-    <button onclick="location.href='/index.html'">Go to Home Page</button>
-    <button onclick="location.href='/crafts.html'">Go to Crafts Page</button> -->
+
 </body>
-    <script>
-        async function checkAccess() {
-            const token = localStorage.getItem("authToken");
-            if (!token) return (window.location.href = "/index.html");
-
-            const res = await fetch("/verify", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ token })
-            });
-
-            const json = await res.json();
-            
-            if (!json.valid || json.role !== "admin") {
-                window.location.href = "/index.html";
-            }
-        }
-
+    <script type="module">
+        import { loadHeader } from "/js/header.js";
+        import { checkAccess } from "/js/checkAdminAccess.js";
+        loadHeader();
         checkAccess();
-
-        function logout() {
-            localStorage.removeItem("authToken");
-            window.location.href = "/index.html";
-        }
     </script>
 </html>

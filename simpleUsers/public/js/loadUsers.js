@@ -15,7 +15,7 @@ export async function loadUsers(token) {
         tr.innerHTML = `
             <td>${username}</td>
             <td>${data.role}</td>
-            <td><button onclick="openModal('${username}')">Change Password</button></td>
+            <td><button class="changePasswordBtn" data-username="${username}">Change Password</button></td>
         `;
         tbody.appendChild(tr);
     });

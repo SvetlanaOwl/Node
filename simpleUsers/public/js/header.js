@@ -1,4 +1,4 @@
-async function loadHeader() {
+export async function loadHeader() {
     const token = localStorage.getItem("authToken");
 
     //Get user role
