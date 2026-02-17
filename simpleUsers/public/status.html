@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/status.css">
+</head>
+<body>
+    <!--header Section-->
+    <div id="header" class="header">
+        <div class="header-left" id="header-left"></div>
+        <div class="header-right" id="header-right"></div>
+    </div>
+        
+    <div class="status-wrapper">
+        <div class="status-card">
+            <div class="status-title">System Status</div>
+
+            <div id="statusDisplay" class="status-text">
+                Loading status...
+            </div>
+
+            <div id="timestamp" class="timestamp"></div>
+
+            <button class="refresh-btn" id="refreshBtn">Refresh</button>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { loadHeader } from "/js/header.js";
+        import { loadStatus } from "/js/loadStatus.js";
+
+        loadHeader();
+        loadStatus();
+    </script>
+</body>
+</html>
