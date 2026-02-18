@@ -13,5 +13,7 @@ export async function checkAccess() {
         return redirect();
     }
 
-   document.getElementById("status").textContent = "Access granted";
+   if  (document.getElementById("status")) {
+    document.getElementById("status").textContent = "Access granted";
+   }
 }
