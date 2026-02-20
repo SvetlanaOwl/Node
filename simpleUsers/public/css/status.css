@@ -1,3 +1,9 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+}
 /*Page layout*/
 .status-wrapper {
     font-family: system-ui, sans-serif;

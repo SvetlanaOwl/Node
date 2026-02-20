@@ -23,5 +23,10 @@
         "label": "Admin",
         "href": "/admin.html",
         "roles": ["admin"]
-    }    
+    },
+    {
+        "label": "Tests",
+        "href": "/tests.html",
+        "roles": ["admin", "editor", "viewer"]
+    }   
 ]
