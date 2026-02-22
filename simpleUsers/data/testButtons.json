@@ -1,0 +1,17 @@
+{
+  "tests": [
+    "psycho", 
+    "form", 
+    "relationships", 
+    "blood",
+    "split",
+    "paranoia",
+    "adequacy",
+    "supernatural",
+    "psi",
+    "logic",
+    "emotion",
+    "addiction"
+    ]
+}
+

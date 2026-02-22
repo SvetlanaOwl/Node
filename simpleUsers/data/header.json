@@ -25,8 +25,8 @@
         "roles": ["admin"]
     },
     {
-        "label": "Tests",
-        "href": "/tests.html",
+        "label": "Test",
+        "href": "/test2.html",
         "roles": ["admin", "editor", "viewer"]
     }   
 ]

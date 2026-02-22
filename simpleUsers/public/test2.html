@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychological Tests</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/testStyles.css">
+</head>
+<body>
+     <!--header Section-->
+    <div id="header" class="header">
+        <div class="header-left" id="header-left"></div>
+        <div class="header-right" id="header-right"></div>
+    </div>
+
+    <h1>Пройдите психологические тесты</h1>
+    <p>Узнайте что вы скрываете даже от самого себя? Ответьте на 
+        несколько вопросов - результат может вас удивить!</p>
+    <div class="button-grid">
+        
+        <button id="psycho">Психологический тест</button>
+        <button id="form">Самооткрытие</button>
+        <button id="relationships">Отношения</button>
+        <button id="blood">Кровожадность</button>
+        <button id="split">Разделение Личности</button>
+        <button id="paranoia">Паранойя</button>
+        <button id="adequacy">Адекватность</button>
+        <button id="supernatural">Сверхъестественное</button>
+        <button id="psi">Пси Возраст</button>
+        <button id="logic">Логика</button>
+        <button id="emotion">Эмоциональный Интеллект</button>
+        <button id="addiction">Аддикция</button>
+    </div>
+
+    <script type = "module">
+        import { buttons } from './js/test2.js';
+        import { loadHeader } from "./js/header.js";
+
+        loadHeader();
+        buttons();
+    </script>
+</body>
+</html>
