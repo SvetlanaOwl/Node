@@ -1,8 +1,7 @@
-{
-  "tests": [
-    "psycho", 
-    "form", 
-    "relationships", 
+[
+    "psycho",
+    "form",
+    "relationships",
     "blood",
     "split",
     "paranoia",
@@ -12,6 +11,4 @@
     "logic",
     "emotion",
     "addiction"
-    ]
-}
-
+]
