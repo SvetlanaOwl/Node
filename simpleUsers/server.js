@@ -16,6 +16,7 @@ const statusRoute = require("./routes/status");
 const headerRoute = require("./routes/header");
 const avatarRoutes = require("./routes/avatar");
 const testsRoutes = require("./routes/tests");
+const supplementsRoutes = require("./routes/supplements");
 
 app.use("/seacrafts", seacraftsRoute); // Mount seacrafts route - Закрепить маршрут морских судов
 app.use("/users", usersRoute); // Mount users route - Закрепить маршрут пользователей
@@ -24,6 +25,7 @@ app.use("/status", statusRoute); // Mount status route - Закрепить ма
 app.use("/header", headerRoute); //Mount header route - закрепить маршрут заголовка
 app.use("/", avatarRoutes); //Mount avatar upload route - закрепить маршрут загрузки аватара
 app.use("/tests", testsRoutes); // Mount tests route - Закрепить маршрут теста
+app.use("/supplements", supplementsRoutes);
 
 // Start server - запуск сервера
 app.listen(PORT, () => {
