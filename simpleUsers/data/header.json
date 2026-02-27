@@ -28,5 +28,10 @@
         "label": "Test",
         "href": "/test.html",
         "roles": ["admin", "editor", "viewer"]
-    }   
+    },
+    {
+        "label": "Supplements",
+        "href": "/supplements.html",
+        "roles": ["admin", "editor", "viewer"]
+    }     
 ]
