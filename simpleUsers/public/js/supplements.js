@@ -1,10 +1,6 @@
-export async function loadSupplements(token) {
-    const res = await fetch("/supplements", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        //body: JSON.stringify({ token })
-    });
-
+export async function loadSupplements() {
+    const res = await fetch("/supplements");
+        
     const data = await res.json();//получаем данные
     const tbody = document.querySelector("#supplementsTable tbody");// получаем элемент таблицы
     tbody.innerHTML = "";//очищаем таблицу
