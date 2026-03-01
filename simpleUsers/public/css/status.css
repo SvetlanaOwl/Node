@@ -3,6 +3,7 @@ body {
     background: #f5f7fa;
     margin: 0;
     padding: 20px;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
 }
 /*Page layout*/
 .status-wrapper {

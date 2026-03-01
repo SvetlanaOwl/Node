@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Page</title>
     <link rel="stylesheet" href="/css/header.css">
-     <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
     <!--header Section-->
@@ -13,28 +14,21 @@
         <div class="header-left" id="header-left"></div>
         <div class="header-right" id="header-right"></div>
     </div>
-    <br>
-    <table id="supplementsTable">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Serving_size</th>
-                <th>Link</th>
-                <th>Comments</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <!--header ends-->
+    <h2>This is Terms page.</h2>
     
+    <div class="content">
+        <!-- контент -->
+    </div>
+    
+    <footer id="footer" class="footer"></footer>
+</body>
     <script type="module">
         import { loadHeader } from "/js/header.js";
-        import { loadSupplements } from "/js/supplements.js";
-
+        import { checkAccess } from "/js/checkAdminAccess.js";
+        import { loadFooter } from "/js/footer.js";
         loadHeader();
-        loadSupplements();
+        checkAccess();
+        loadFooter();
     </script>
-</body>
 </html>
-
-
-    

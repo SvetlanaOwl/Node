@@ -18,6 +18,9 @@ export async function loadFooter() {
         const a = document.createElement("a");
         a.href = item.href;
         a.textContent = item.label;
+        if (footerItems.children.length > 0) {
+            footerItems.appendChild(document.createTextNode(" | "));
+        }
         footerItems.appendChild(a);
     });
 }

@@ -2,7 +2,7 @@
 const express = require("express");
     const router = express.Router();
   
-    router.get("/", async (req, res) => {
+    router.get("/", (req, res) => {
         const supplements = require("../data/listOfSupplements.json");
         res.json(supplements);
     });

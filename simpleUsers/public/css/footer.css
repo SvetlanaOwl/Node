@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+footer {
+    background-color: #2d6cdf;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+footer a {
+    color: white; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчёркивание */
+    margin: 0 5px; /* Отступы между ссылками */
+}
+
+footer a:hover {
+    color: #f79256;
+    cursor: pointer;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
