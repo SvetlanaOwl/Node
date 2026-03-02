@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+    <!--header Section-->
+    <header id="header" class="header">
+        <div class="header-left" id="header-left"></div>
+        <div class="header-right" id="header-right"></div>
+    </header>
+    <!--header ends-->
+        
+    <div class="content">
+        <!-- контент -->
+    </div>
+
+    <footer id="footer" class="footer"></footer>
+</body>
+    <script type="module">
+        import { loadHeader } from "/js/header.js";
+        import { loadFooter } from "/js/footer.js";
+        loadHeader();
+        loadFooter();
+    </script>
+</html>
