@@ -16,13 +16,13 @@ export function initUserCreation() {
     const token = localStorage.getItem("authToken");
     const payload = {
         token,
-        userName: document.getElementById("newUserName").value,
+        username: document.getElementById("newUsername").value,
         password: document.getElementById("newPassword").value,
         role: document.getElementById("newRole").value,
         firstName: document.getElementById("newFirstName").value,
         lastName: document.getElementById("newLastName").value,
         email: document.getElementById("newEmail").value,
-        description: document.getElementById("newDescription").value,
+        description: document.getElementById("newDescription").value
     };
     const res = await fetch("/users/create", {
         method: "POST",
