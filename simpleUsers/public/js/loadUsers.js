@@ -16,6 +16,7 @@ export async function loadUsers(token) {
             <td>${username}</td>
             <td>${data.role}</td>
             <td><button class="changePasswordBtn" data-username="${username}">Change Password</button></td>
+            <td><button class="deleteBtn" data-username="${username}">Delete User</button></td>
         `;
         tbody.appendChild(tr);
     });
