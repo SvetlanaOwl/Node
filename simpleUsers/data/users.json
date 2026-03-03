@@ -20,5 +20,14 @@
   "john": {
     "password": "qwety",
     "role": "viewer"
+  },
+  "CoBa": {
+    "password": "1591",
+    "role": "viewer",
+    "firstName": "Галина",
+    "lastName": "Сова",
+    "email": "1591@bk.ru",
+    "description": "good girls",
+    "avatar": null
   }
 }
