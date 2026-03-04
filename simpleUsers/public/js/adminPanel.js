@@ -18,6 +18,15 @@ export function initAdminPanel() {
                 document.getElementById("modal-bg").style.display = "flex";
             });
         });
+        //Attach event listeners to dynamically created delete buttons
+        document.querySelectorAll(".deleteUserBtn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const username = btn.dataset.username;
+                document.getElementById("deleteUsername").value = username;
+                document.getElementById("deleteUserModal").style.display = "block";
+                document.getElementById("modal-del-user").style.display = "flex";
+            });
+        });
     });
 
     // Close modal

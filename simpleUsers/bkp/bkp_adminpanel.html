@@ -85,25 +85,10 @@
                 <button id="createUserCancel">Cancel</button>        
             </div>
             
-            <p id="createUserResult"></p>
+             <p id="createUserResult"></p>
         </div>
-    </div> 
+    </div>            
 
-    <!--Delete User modal-->
-    <div class="modal-bg" id="modal-del-user">
-        <div class="modal" id="deleteUserModal">
-            <h3>Delete User</h3>
-            <!-- Username (filled automatically when clicking Delete User)-->
-            <label>Username:</label>
-            <input id="deleteUsername" type="text" readonly>
-            <div class="modal-actions">
-                <button id="submitDeleteUser">Sumbit</button>
-                <button id="closeDeleteUserModal">Cancel</button> 
-            </div>
-            <p id="modal-result"></p>
-        </div>
-    </div>
-            
     <script type="module">
         import { loadHeader } from "/js/header.js";
         import { checkAccess } from "/js/checkAdminAccess.js";
