@@ -12,10 +12,8 @@ export function initAdminPanel() {
         // Attach event listeners to dynamically created buttons
         document.querySelectorAll(".changePasswordBtn").forEach(btn => {
             btn.addEventListener("click", () => {
-                console.log("Change password button clicked for user:", btn.dataset.username);
                 const username = btn.dataset.username;
                 document.getElementById("passwordUsername").value = username;
-                console.log("Opening modal for user:", username);
                 document.getElementById("passwordModal").style.display = "block";
                 document.getElementById("modal-bg").style.display = "flex";
             });
