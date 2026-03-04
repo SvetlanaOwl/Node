@@ -3,8 +3,6 @@ export function initAdminPanel() {
     const modal = document.getElementById("passwordModal");
     const closeBtn = document.getElementById("closePasswordModal");
     const submitBtn = document.getElementById("submitPasswordChange");
-    const delUserBtn = document.getElementById("submitDeleteUser");
-    const closeDeleteUserModal = document.getElementById("closeDeleteUserModal");
     const token = localStorage.getItem("authToken");
 
     // Load user first
@@ -27,11 +25,6 @@ export function initAdminPanel() {
         modal.style.display = "none";
         document.getElementById("modal-bg").style.display = "none";
     });
-    //Close delete user modal
-    closeDeleteUserModal.addEventListener("click", () => {
-        document.getElementById("deleteUserModal").style.display = "none";
-        document.getElementById("modal-del-user").style.display = "none";
-    });
     // Submit password change
     submitBtn.addEventListener("click", async () => {
         const payload = {
@@ -39,7 +32,7 @@ export function initAdminPanel() {
             username: document.getElementById("passwordUsername").value,
             newPassword: document.getElementById("passwordNew").value
         };
-    
+
         const res = await fetch("/users/change-password", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -53,30 +46,8 @@ export function initAdminPanel() {
             modal.style.display = "none";
             location.reload();
         } else {
-
+            
             alert(json.message);
-        }
-    });
-    
-    //Submit delete user
-    delUserBtn.addEventListener("click", async () => {
-        const payload = {
-            token,
-            username: document.getElementById("deleteUsername").value
-        };
-        const res = await fetch("/users/delete", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        });
-        const json = await res.json();
-
-        if (json.success) {
-            alert("User deleted");
-            document.getElementById("deleteUserModal").style.display = "none";
-            location.reload();
-        } else {
-         alert(json.message);
         }
     });
 }

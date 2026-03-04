@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/header.css">
+</head>
+<body>
+    <!--header Section-->
+    <div id="header" class="header">
+        <div class="header-left" id="header-left"></div>
+        <div class="header-right" id="header-right"></div>
+    </div>
+    
+    <!--header ends-->
+    <h2>Admin Panel</h2>
+    <p id="status">Checking access...</p>
+    <button id="addUserBtn" class="primary-btn">Add New User</button><br><br>
+    <!--User table-->
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Actions</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <!--Password change modal-->
+    <div class="modal-bg" id="modal-bg">
+        <div class="modal" id="passwordModal">
+            <h3>Change Password</h3>
+    <!--Username (filed automatically when clicking Change Password)-->
+            <label>Username:</label>
+            <input id="passwordUsername" type="text" readonly>
+    
+    <!--New Password-->
+            <label>New Password:</label>
+            <input id="passwordNew" type="password">    
+    
+            <div class="modal-actions">
+                <button id="submitPasswordChange">Submit</button>
+                <button id="closePasswordModal">Cancel</button>        
+            </div>
+        
+            <p id="modal-result"></p>
+        </div>
+    </div> 
+
+    <!--Create User Modal-->
+        <div class="modal-bg" id="addUserModal">
+            <div class="modal">
+            <h3>Create New User</h3>   
+
+            <label>Username:</label>
+            <input id="newUsername" type="text">
+
+            <label>Password:</label>
+            <input id="newPassword" type="password">
+
+            <label>Role:</label>
+            <select id="newRole">
+                <option value="viewer">Viewer</option>
+                <option value="editor">Editor</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            <label>First Name:</label>
+            <input id="newFirstName" type="text">
+
+            <label>Last Name:</label>
+            <input id="newLastName" type="text">
+
+            <label>Email:</label>
+            <input id="newEmail" type="email">
+
+            <label>Description:</label>
+            <textarea id="newDescription"></textarea>
+
+            <div class="modal-actions">
+                <button id="createUserConfirm">Create</button>
+                <button id="createUserCancel">Cancel</button>        
+            </div>
+            
+            <p id="createUserResult"></p>
+        </div>
+    </div> 
+
+    <!--Delete User modal-->
+    <div class="modal-bg" id="modal-del-user">
+        <div class="modal" id="deleteUserModal">
+            <h3>Delete User</h3>
+            <!-- Username (filled automatically when clicking Delete User)-->
+            <label>Username:</label>
+            <input id="deleteUsername" type="text" readonly>
+            <div class="modal-actions">
+                <button id="submitDeleteUser">Sumbit</button>
+                <button id="closeDeleteUser">Cancel</button> 
+            </div>
+            <p id="modal-result"></p>
+        </div>
+    </div>
+            
+    <script type="module">
+        import { loadHeader } from "/js/header.js";
+        import { checkAccess } from "/js/checkAdminAccess.js";
+        import { initAdminPanel } from "/js/adminPanel.js";
+        import { initUserCreation } from "/js/createUser.js"; 
+        loadHeader();
+        checkAccess();
+        initAdminPanel();
+        initUserCreation();
+    </script>
+</body>
+</html>
