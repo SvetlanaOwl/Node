@@ -1,4 +1,4 @@
-import { loadUsers } from "/js/loadUsers.js";
+import { loadUsersTable } from "/js/loadUsersTable.js";
 export function initAdminPanel() {
     const modal = document.getElementById("passwordModal");
     const closeBtn = document.getElementById("closePasswordModal");
@@ -8,7 +8,7 @@ export function initAdminPanel() {
     const token = localStorage.getItem("authToken");
 
     // Load user first
-    loadUsers(token).then(() => {
+    loadUsersTable(token).then(() => {
         // Attach event listeners to dynamically created buttons
         document.querySelectorAll(".changePasswordBtn").forEach(btn => {
             btn.addEventListener("click", () => {
