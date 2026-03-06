@@ -11,5 +11,15 @@ function loadUsers() {
 function saveUsers(users) {
     fs.writeFileSync(filePath, JSON.stringify(users, null, 2));
 }
+function deleteUser(username) {
+    const users = loadUsers();
+
+    if (users[username]) {
+        delete users[username];
+        saveUsers(users);
+        return true;
+    }
+    return false;
+}
 
 module.exports = { loadUsers, saveUsers };

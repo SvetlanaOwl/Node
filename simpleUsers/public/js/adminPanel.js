@@ -67,14 +67,13 @@ export function initAdminPanel() {
     
     //Submit delete user
     delUserBtn.addEventListener("click", async () => {
-        const payload = {
-            token,
-            username: document.getElementById("deleteUsername").value
-        };
-        const res = await fetch("/users/delete", {
+        const token = localStorage.getItem("authToken");
+            const username = document.getElementById("deleteUsername").value
+        
+        const res = await fetch("/users/delete/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
+            body: JSON.stringify({ token, username })
         });
         const json = await res.json();
 

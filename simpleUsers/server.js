@@ -19,6 +19,7 @@ const testsRoute = require("./routes/tests");
 const supplementsRoute = require("./routes/supplements");
 const footerRoute = require("./routes/footer");
 const createUserRoute = require("./routes/createUser");
+const deleteUserRoute = require("./routes/deleteUser");
 
 
 app.use("/seacrafts", seacraftsRoute); // Mount seacrafts route - Закрепить маршрут морских судов
@@ -31,6 +32,7 @@ app.use("/tests", testsRoute); // Mount tests route - Закрепить мар�
 app.use("/supplements", supplementsRoute);
 app.use("/footer", footerRoute);
 app.use("/", createUserRoute);
+app.use("/", deleteUserRoute);
 
 // Start server - запуск сервера
 app.listen(PORT, () => {
