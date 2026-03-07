@@ -68,7 +68,7 @@ export function initAdminPanel() {
     //Submit delete user
     delUserBtn.addEventListener("click", async () => {
         const token = localStorage.getItem("authToken");
-            const username = document.getElementById("deleteUsername").value
+            const username = document.getElementById("deleteUsername").value;
         
         const res = await fetch("/users/delete/", {
             method: "POST",

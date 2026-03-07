@@ -8,13 +8,13 @@ const { verifyToken } = require("../utils/auth");
 router.post("/users/delete", (req, res) => {
     const { token, username } = req.body;
 
-    const valid = verifyToken (token);
+    const valid = verifyToken(token);
     if (!valid || valid.role !== "admin") {
         return res.json({ success: false, message: "Unauthorized" });
     }
     const users = loadUsers();
 
-    if (!user[username]) {
+    if (!users[username]) {
         return res.json({ success: false, message: "User not found" });
     }
 
