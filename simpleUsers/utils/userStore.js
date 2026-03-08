@@ -22,4 +22,4 @@ function deleteUser(username) {
     return false;
 }
 
-module.exports = { loadUsers, saveUsers };
+module.exports = { loadUsers, saveUsers, deleteUser };

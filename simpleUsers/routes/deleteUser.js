@@ -10,12 +10,11 @@ router.post("/users/delete", (req, res) => {
 
     const valid = verifyToken(token);
     if (!valid || valid.role !== "admin") {
-        return res.json({ success: false, message: "Unauthorized" });
+        return res.status(403).json({ success: false, message: "Unauthorized" });
     }
     const users = loadUsers();
-
     if (!users[username]) {
-        return res.json({ success: false, message: "User not found" });
+        return res.status(404).json({ success: false, message: "User not found" });
     }
 
     deleteUser(username); //Delete user by username
