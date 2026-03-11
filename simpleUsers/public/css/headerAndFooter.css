@@ -1,0 +1,189 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.header {
+    background: #2d6cdf;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left a,
+.header-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logout-btn {
+    background: #ff4d4d;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background: #d93636;
+}
+
+/*Avatar circle*/
+.avatar {
+    width: 32px;
+    height: 32px;
+    background: #ffffff55;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+/*Username next to avatar*/
+.username {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*Dropdown container*/
+.profile-dropdown {
+    position: relative;
+}
+
+/*Dropdown menu*/
+.dropdown-menu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    min-width: 150px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    padding: 12px 16px;
+    text-align: left;
+    color: #333;
+    background: white;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background: #f0f0f0;
+    color: #000;
+}
+
+.dropdown-open .dropdown-menu {
+    display: flex;
+}
+
+/*Active link styling*/
+.header-left a.active {
+    color: #f79256;
+    text-decoration: underline;
+}
+
+/* Profile page avatar related */
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.avatar-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.upload-button {
+    background: #2d6cdf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.upload-button:hover {
+    background: #f79256;
+}
+
+input[type="file"]::file-selector-button {
+    /* Basic styling */
+    background-color: #2d6cdf; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Some padding */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Hand cursor on hover */
+    font-size: 16px; /* Larger font size */
+}
+
+/* Add hover effects */
+input[type="file"]::file-selector-button:hover {
+    background-color: #f79256;
+}
+
+.footer {
+    display: flex;
+    background-color: #2d6cdf;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 16px;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+.footer a {
+    color: white; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчёркивание */
+    margin: 0 5px; /* Отступы между ссылками */
+}
+
+.footer a:hover {
+    color: #f79256;
+    cursor: pointer;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
