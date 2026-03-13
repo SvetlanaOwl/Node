@@ -1,12 +1,11 @@
-/*body {
+body {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-}*/
+}
 
 .header {
-    /*background: #2d6cdf;*/
-    background: #3498db;
+    background: #2d6cdf;
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
@@ -18,20 +17,13 @@
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
     margin-right: 20px;
-}
-/* Active link styling */
-.header-left a.active {
-    color: #f79256;
-    text-decoration: underline;
 }
 
 .header-right {
     display: flex;
     align-items: center;
     gap: 20px;
-    position: relative;
 }
 
 .logout-btn {
@@ -108,9 +100,14 @@
     color: #000;
 }
 
-/* Show dropdown */
 .dropdown-open .dropdown-menu {
     display: flex;
+}
+
+/*Active link styling*/
+.header-left a.active {
+    color: #f79256;
+    text-decoration: underline;
 }
 
 /* Profile page avatar related */
@@ -141,13 +138,14 @@
     cursor: pointer;
     font-size: 16px;
 }
+
 .upload-button:hover {
     background: #f79256;
 }
 
 input[type="file"]::file-selector-button {
     /* Basic styling */
-    background-color: #2d6cdf; /* Blue background */
+    background-color: #2d6cdf; /* Green background */
     color: white; /* White text */
     padding: 10px 20px; /* Some padding */
     border: none; /* Remove default border */
@@ -161,28 +159,25 @@ input[type="file"]::file-selector-button:hover {
     background-color: #f79256;
 }
 
-/* Footer styles */
-footer {
-    /*display: flex;
-    background-color: #2d6cdf;*/
-    background-color: #3498db;
-    color: #fff;
+.footer {
+    display: flex;
+    background-color: #2d6cdf;
+    color: white;
+    padding: 10px 0;
     text-align: center;
-    padding: 10px;
-    /*font-size: 16px;
+    font-size: 16px;
     justify-content: center;
     width: 100%;
-    font-weight: bold;*/
-}
-
-footer a {
-    color: #fff; /* Цвет ссылок */
-    text-decoration: none; /* Убираем подчёркивание */
     font-weight: bold;
-    /*margin: 0 5px; /* Отступы между ссылками */
 }
 
-/*.footer a:hover {
+.footer a {
+    color: white; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчёркивание */
+    margin: 0 5px; /* Отступы между ссылками */
+}
+
+.footer a:hover {
     color: #f79256;
     cursor: pointer;
 }
@@ -191,4 +186,4 @@ footer a {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
-}*/
+}
