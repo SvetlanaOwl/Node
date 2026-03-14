@@ -24,8 +24,11 @@
 
     <script type="module">
     import { initLogin } from "/js/login.js";
+    import { setCookie } from "/js/suCookie.js";
 
     initLogin();
+    setCookie("Alex", "1234", 10);
+    setCookie("Sveta", "pass", 10);
     </script>
 </body>
 </html>

@@ -12,9 +12,7 @@
         <div class="header-left" id="header-left"></div>
         <div class="header-right" id="header-right"></div>
     </div>
-    <script src="/js/header.js"></script>
-    <script>loadHeader()</script>
-    
+        
     <h2>This is Editor page. Only accessible to users with the  'editor' role.</h2>
     <script>
         async function checkAccess() {
@@ -38,6 +36,11 @@
             localStorage.removeItem("authToken");
             window.location.href = "/index.html";
         }
+    </script>
+    <script type="module">
+        import { loadHeader } from "/js/header.js";
+        
+        loadHeader();
     </script>
 </body>
 </html>
