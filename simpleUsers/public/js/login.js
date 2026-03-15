@@ -1,3 +1,4 @@
+import { setCookie } from "/js/setCookie.js"
 export async function initLogin() {
     const form = document.getElementById("login-box");
     const usernameInput = document.getElementById("username");
@@ -19,7 +20,7 @@ export async function initLogin() {
 
             if (json.success) {
                 localStorage.setItem("authToken", json.token); // store auth token in localStorage
-
+                setCookie("username", username, 7);
         const [, role] = json.token.split("|"); // username|role|sig
 
             if (role === "admin") window.location.href = "/adminpanel.html";

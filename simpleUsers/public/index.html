@@ -23,11 +23,11 @@
     </div>
 
     <script type="module">
-    import { initLogin } from "/js/login.js";
     import { setCookie } from "/js/setCookie.js";
-
+    import { initLogin } from "/js/login.js";
+    
+    setCookie("username", username.value, 7);
     initLogin();
-    setCookie("username", cvalue, 7);
     </script>
 </body>
 </html>
