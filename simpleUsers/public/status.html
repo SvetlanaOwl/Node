@@ -6,6 +6,14 @@
     <title>System Status</title>
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/status.css">
+    <style>
+        button {
+        margin: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <!--header Section-->
@@ -27,13 +35,43 @@
             <button class="refresh-btn" id="refreshBtn">Refresh</button>
         </div>
     </div>
+
+    <div>
+        <button id="displayCookies">Display All Cookies</button>
+        <button id="createCookie1">Create Cookie 1</button>
+        <button id="createCookie2">Create Cookie 2</button>
+        <button id="deleteCookie1">Delete Cookie 1</button>
+        <button id="deleteCookie2">Delete Cookie 2</button>
+    </div>
+    <div id="showButtons"></div>
     
     <script type="module">
         import { loadHeader } from "/js/header.js";
         import { loadStatus } from "/js/loadStatus.js";
+        import { displayAllCookies, createCookie, deleteCookie } from "/js/cookie.js";
 
         loadHeader();
         loadStatus();
+        // Обработчики кликов для кнопок
+    document.getElementById('displayCookies').addEventListener('click', displayAllCookies);
+
+    document.getElementById('createCookie1').addEventListener('click', () => {
+    createCookie('cookie1', 'value1', 7); 
+    });
+
+    document.getElementById('createCookie2').addEventListener('click', () => {
+    createCookie('cookie2', 'value2', 10); 
+    });
+
+    document.getElementById('deleteCookie1').addEventListener('click', () => {
+    deleteCookie('cookie1');
+    });
+
+    document.getElementById('deleteCookie2').addEventListener('click', () => {
+    deleteCookie('cookie2');
+    });
+
+    displayAllCookies();
     </script>
 </body>
 </html>
