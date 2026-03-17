@@ -36,42 +36,24 @@
         </div>
     </div>
 
-    <div>
-        <button id="displayCookies">Display All Cookies</button>
+    <div id="cookieButtons">
         <button id="createCookie1">Create Cookie 1</button>
         <button id="createCookie2">Create Cookie 2</button>
         <button id="deleteCookie1">Delete Cookie 1</button>
         <button id="deleteCookie2">Delete Cookie 2</button>
     </div>
+    <h4><strong>List of all cookies:</strong></h4>
     <div id="showButtons"></div>
     
     <script type="module">
         import { loadHeader } from "/js/header.js";
         import { loadStatus } from "/js/loadStatus.js";
-        import { displayAllCookies, createCookie, deleteCookie } from "/js/cookie.js";
+        import { btnCreate1, btnCreate2, btnDelete1, btnDelete2 } from '/js/buttonManager.js';
 
         loadHeader();
         loadStatus();
-        // Обработчики кликов для кнопок
-    document.getElementById('displayCookies').addEventListener('click', displayAllCookies);
-
-    document.getElementById('createCookie1').addEventListener('click', () => {
-    createCookie('cookie1', 'value1', 7); 
-    });
-
-    document.getElementById('createCookie2').addEventListener('click', () => {
-    createCookie('cookie2', 'value2', 10); 
-    });
-
-    document.getElementById('deleteCookie1').addEventListener('click', () => {
-    deleteCookie('cookie1');
-    });
-
-    document.getElementById('deleteCookie2').addEventListener('click', () => {
-    deleteCookie('cookie2');
-    });
-
-    displayAllCookies();
+        displayAllCookies();
+    
     </script>
 </body>
 </html>
