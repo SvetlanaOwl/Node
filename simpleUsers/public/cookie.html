@@ -18,7 +18,6 @@
     </head>
     <body>
     <div>
-        <button id="displayCookies">Display All Cookies</button>
         <button id="createCookie1">Create Cookie 1</button>
         <button id="createCookie2">Create Cookie 2</button>
         <button id="deleteCookie1">Delete Cookie 1</button>
@@ -27,32 +26,9 @@
     <div id="showButtons"></div>
 
     <script type="module">
-    import { displayAllCookies, createCookie, deleteCookie } from "/js/cookie.js";
-        
-    // Обработчики кликов для кнопок
-    document.getElementById('displayCookies').addEventListener('click', displayAllCookies);
+    import { buttonListeners } from '/js/buttonManager.js';
 
-    document.getElementById('createCookie1').addEventListener('click', () => {
-    createCookie('cookie1', 'value1', 7); 
-    displayAllCookies();
-    });
-
-    document.getElementById('createCookie2').addEventListener('click', () => {
-    createCookie('cookie2', 'value2', 10); 
-    displayAllCookies();
-    });
-
-    document.getElementById('deleteCookie1').addEventListener('click', () => {
-    deleteCookie('cookie1');
-    displayAllCookies();
-    });
-
-    document.getElementById('deleteCookie2').addEventListener('click', () => {
-    deleteCookie('cookie2');
-    displayAllCookies();
-    });
-
-    displayAllCookies();
+    buttonListeners();
     </script>
 </body>
 </html>

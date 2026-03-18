@@ -6,14 +6,6 @@
     <title>System Status</title>
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/status.css">
-    <style>
-        button {
-        margin: 15px;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 10px;
-        }
-    </style>
 </head>
 <body>
     <!--header Section-->
@@ -35,24 +27,13 @@
             <button class="refresh-btn" id="refreshBtn">Refresh</button>
         </div>
     </div>
-
-    <div id="cookieButtons">
-        <button id="createCookie1">Create Cookie 1</button>
-        <button id="createCookie2">Create Cookie 2</button>
-        <button id="deleteCookie1">Delete Cookie 1</button>
-        <button id="deleteCookie2">Delete Cookie 2</button>
-    </div>
-    <h4><strong>List of all cookies:</strong></h4>
-    <div id="showButtons"></div>
     
     <script type="module">
         import { loadHeader } from "/js/header.js";
         import { loadStatus } from "/js/loadStatus.js";
-        import { buttonListeners } from '/js/buttonManager.js';
-
+        
         loadHeader();
         loadStatus();
-        buttonListeners();
     </script>
 </body>
 </html>

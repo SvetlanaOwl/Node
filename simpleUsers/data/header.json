@@ -20,11 +20,6 @@
         "roles": ["admin", "editor"]
     },    
     {
-        "label": "Admin",
-        "href": "/admin.html",
-        "roles": ["admin"]
-    },
-    {
         "label": "Test",
         "href": "/test.html",
         "roles": ["admin", "editor", "viewer"]
