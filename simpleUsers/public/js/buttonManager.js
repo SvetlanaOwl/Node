@@ -1,4 +1,4 @@
- import { displayAllCookies, createCookie, deleteCookie } from "./cookie.js";
+import { displayAllCookies, createCookie, deleteCookie } from "./cookie.js";
 
 export function buttonListeners() {
     const btnCreate1 = document.getElementById('createCookie1');
@@ -7,25 +7,25 @@ export function buttonListeners() {
     const btnDelete2 = document.getElementById('deleteCookie2');
 
 
- // Обработчики кликов для кнопок
+// Обработчики кликов для кнопок
 btnCreate1.addEventListener('click', () => {
-createCookie('cookie1', 'value1', 7); 
-displayAllCookies();
+    createCookie('cookie1', 'value1', 7);   
+    displayAllCookies();
 });
 
 btnCreate2.addEventListener('click', () => {
-createCookie('cookie2', 'value2', 10); 
-displayAllCookies();
+    createCookie('cookie2', 'value2', 10); 
+    displayAllCookies();
 });
 
 btnDelete1.addEventListener('click', () => {
-deleteCookie('cookie1');
-displayAllCookies();
+    deleteCookie('cookie1');
+    displayAllCookies();
 });
 
 btnDelete2.addEventListener('click', () => {
-deleteCookie('cookie2');
-displayAllCookies();
+    deleteCookie('cookie2');
+    displayAllCookies();
 });
 
 }
