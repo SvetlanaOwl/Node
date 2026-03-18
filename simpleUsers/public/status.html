@@ -48,12 +48,12 @@
     <script type="module">
         import { loadHeader } from "/js/header.js";
         import { loadStatus } from "/js/loadStatus.js";
-        import { btnCreate1, btnCreate2, btnDelete1, btnDelete2 } from '/js/buttonManager.js';
+        import { buttonListeners } from '/js/buttonManager.js';
 
         loadHeader();
         loadStatus();
-        displayAllCookies();
-    
+        buttonListeners()
+            
     </script>
 </body>
 </html>
