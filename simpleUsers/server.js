@@ -7,6 +7,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+require("dotenv").config(); // needed to import API key
 
 // ROUTE MOUNTS - Закрепление маршрутов
 const seacraftsRoute = require("./routes/seacrafts");
