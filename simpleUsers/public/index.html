@@ -11,8 +11,7 @@
 <body class="flex items-center justify-center min-h-screen bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5]">
     <div class="w-full max-w-md p-6 rounded-lg shadow-xl bg-white">
         <h2 id="loginMessage" class="mb-6 text-lg font-semibold text-center"></h2>
-        <h2 class="mb-6 text-2xl font-semibold text-gray-900 uppercase text-center">Sign In</h2>
-        
+                
         <form id="login-box" class="space-y-4">
             <div class="relative">
             <i class="absolute top-1/2 -translate-y-1/2 left-4 fa-solid fa-user text-gray-500"></i>
@@ -33,7 +32,7 @@
     import { loginMessage } from "/js/loginMessage.js";
     
     initLogin();
-    loginMessage("loginMessage", "Hello, [user]!", "Please log in", 2000);
+    loginMessage("loginMessage", "Hello,", "Please log in!", 2000);
     </script>
 </body>
 </html> 

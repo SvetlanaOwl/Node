@@ -1,14 +1,13 @@
-import { getCookie } from './setCookie.js';
+import { getCookie } from './manageCookies.js';
 export function loginMessage(elementId, word1, word2, interval = 1000) {
   const el = document.getElementById(elementId);
   
   const username = getCookie('username');
-  const wordName = word1.replace('[user]', username || '[user]');
-  let toogle = true;
+  let toggle = true;
   
 
   setInterval(() => {
-    el.textContent = toogle ? wordName : word2;
-    toogle = !toogle; 
+    el.textContent = toggle ? `${word1} ${username}` : word2;
+    toggle = !toggle; 
   }, interval);
 }
