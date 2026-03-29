@@ -1,0 +1,9 @@
+Node.js streams are a core feature of the Node.js standard library designed to process data
+ incrementally in manageable chunks rather than loading entire datasets into memory at once.
+  This approach makes applications significantly more memory-efficient and performant, 
+  particularly when handling large files, network requests, or real-time data like video and audio.
+   There are four primary types of streams: Readable for consuming data, Writable for sending data,
+    Duplex for simultaneous reading and writing, and Transform for modifying data as it flows through
+     the pipeline. By using methods like stream.pipeline(), developers can securely chain these 
+     streams together while automatically managing backpressure—a mechanism that prevents a fast data
+      producer from overwhelming a slower consumer.
