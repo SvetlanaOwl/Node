@@ -40,8 +40,8 @@ const server = http.createServer((req, res) => {
 
         // Set appropriate headers
         res.setHeader('Content-Length', stats.size);
-        //res.setHeader('Content-Type', 'application/octet-stream');
-        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+        res.setHeader('Content-Type', 'application/octet-stream');
+        //res.setHeader('Content-Type', 'text/plain; charset=utf-8');
         //const ext = path.extname(filePath).toLowerCase();
         // contentType = mimeTypes[ext] || 'application/octet-stream';
         //res.setHeader('Content-Type', contentType);
