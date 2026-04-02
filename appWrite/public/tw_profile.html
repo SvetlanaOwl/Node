@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include the Appwrite Web SDK via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@23.0.0"></script>
+</head>
+<body class="min-h-screen flex   bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5]">
+    <div class="p-10">   <!-- основной контейнер с отступами -->
+        <!-- Заголовок слева с отступом сверху и слева -->
+        <h2 id="loginMessage" class="text-2xl font-bold text-gray-800 mb-6">Profile</h2>
+        <!-- Кнопка под заголовком -->
+        <div>
+            <button type="button" id="logoutBtn" class="bg-blue-500 hover:bg-blue-600 text-white 
+            px-6 py-3 rounded-mg">Logout</button>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { logout } from './js/appwriteUtils.js';
+        logout();
+    </script>
+</body>
+</html>
