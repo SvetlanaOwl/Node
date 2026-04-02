@@ -4,11 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Include the Appwrite Web SDK via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/appwrite@23.0.0"></script>
 </head>
-<body>
-    <h2>Menu</h2>
+<body class="flex flex-col min-h-scren bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5">
+    <!-- HEADER -->
+<header class="bg-white shadow-sm border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 bg-gradient-to-br from-[#74ebd5] to-[#ACB6E5] rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-inner">
+                W
+            </div>
+            <span class="font-semibold text-2xl tracking-tight text-gray-800">Wolf&Owl Hub</span>
+        </div>
+
+        <!-- Navigation -->
+        <nav id="header-nav" class="hidden md:flex items-center gap-8 text-gray-600 font-medium">
+            <!-- Menu item will be injected here ===== Сюда будут добавляться пункты меню через JavaScript -->
+        </nav>
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-4">
+            <!-- Search -->
+            <div class="relative hidden sm:block">
+                <input type="text" 
+                    placeholder="Search users..."
+                    class="bg-gray-100 border border-transparent focus:border-gray-300 w-72 pl-10 py-2.5 rounded-3xl text-sm focus:outline-none">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+
+            <!-- Notification -->
+            <button class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-2xl transition-colors relative">
+                <i class="fas fa-bell text-xl"></i>
+                <span class="absolute top-2 right-2 w-4 h-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full">3</span>
+            </button>
+
+            <!-- Mini Profile -->
+            <div class="flex items-center gap-3 cursor-pointer">
+                <div class="w-9 h-9 rounded-2xl overflow-hidden border-2 border-white shadow-sm">
+                    <img src="/appWrite/public/img/wolf.jpg" 
+                         alt="Alex Sensei" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="hidden md:block">
+                    <p class="text-sm font-semibold text-gray-800 leading-none">Alex Sensei</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    
     <script type="module">
         import { loadMenu } from './js/menu.js';
         loadMenu();
