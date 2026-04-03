@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Include the Appwrite Web SDK via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/appwrite@23.0.0"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="flex flex-col min-h-scren bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5">
     <!-- HEADER -->
@@ -60,7 +61,10 @@
     
     <script type="module">
         import { loadMenu } from './js/menu.js';
+        import { renderHeader } from './js/menu.js';
+
         loadMenu();
+        renderHeader();
     </script>
 </body>
 </html>
