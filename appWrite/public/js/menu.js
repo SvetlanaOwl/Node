@@ -10,6 +10,7 @@ export async function loadMenu() {
         ]
     );
     console.log("Menu items loaded:", result.documents);
+    return result.documents;
 }
 
 //Function to filter menu items based on user roles  | Фильтрация меню по ролям пользователя
