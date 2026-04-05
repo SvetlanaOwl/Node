@@ -9,7 +9,7 @@ export async function login() {
         try {
             const session = await account.createEmailPasswordSession(email, password);
             console.log("Logged in:", session);
-            window.location.href = "./tw_profile.html";
+            window.location.href = "./menuAlex.html";
         } catch (err) {
             console.error("Login error:", err.message);
         }

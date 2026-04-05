@@ -45,26 +45,45 @@
             </button>
 
             <!-- Mini Profile -->
-            <div class="flex items-center gap-3 cursor-pointer">
-                <div class="w-9 h-9 rounded-2xl overflow-hidden border-2 border-white shadow-sm">
-                    <img src="/appWrite/public/img/wolf.jpg" 
-                         alt="Alex Sensei" 
-                         class="w-full h-full object-cover">
+            <div id="profileWrapper" class="relative">
+                <div id="profileToggle" class="flex items-center gap-3 cursor-pointer select-none">
+                    <div class="w-9 h-9 rounded-2xl overflow-hidden border-2 border-white shadow-sm">
+                        <img src="/appWrite/public/img/wolf.jpg" 
+                            alt="Avatar" 
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="hidden md:block">
+                        <p class="text-sm font-semibold text-gray-800 leading-none" id="profileName">Username</p>
+                    </div>
                 </div>
-                <div class="hidden md:block">
-                    <p class="text-sm font-semibold text-gray-800 leading-none">Alex Sensei</p>
+
+                <!-- Dropdown -->
+                <div id="profileMenu" 
+                    class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg py-2 border border-gray-200 hidden">
+                    <a href="/appWrite/public/profile.html" 
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Profile
+                    </a>
+                    
+                    <button id="logoutBtn" 
+                            class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Logout
+                    </button>
                 </div>
             </div>
+            
         </div>
     </div>
 </header>
     
     <script type="module">
-        import { loadMenu } from './js/menu.js';
         import { renderHeader } from './js/menu.js';
-
-        loadMenu();
+        import { initProfileMenu } from './js/profileMenu.js'
+        import { logout } from './js/appwriteUtils.js';
+       
         renderHeader();
+        initProfileMenu(); 
+        logout();
     </script>
 </body>
 </html>

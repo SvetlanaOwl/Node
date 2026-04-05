@@ -1,6 +1,6 @@
 import { databases, query, account, MDBID, MTID } from "./appwriteClient.js";
 
-export async function loadMenu() {
+async function loadMenu() {
     const result = await databases.listDocuments(
         MDBID,
         MTID,
@@ -27,8 +27,14 @@ function filterMenuByRole(menuItems, userRoles) { //UserRoles is an array of rol
     const userRoles = user.prefs.roles || [];// Извлекаем роли пользователя (если поле отсутствует — используем пустой массив)
     const menuItems = await loadMenu(); // Загружаем пункты меню из базы данных
     const allowed = filterMenuByRole(menuItems, userRoles); // Фильтруем пункты меню в зависимости от ролей пользователя
-    const nav = document.querySelector("#header-nav");// Находим элемент навигации в шапке
-    // Предполагается, что в HTML есть <nav id="header-nav"></nav>
+    const nav = document.querySelector("#header-nav");// Находим элемент навигации в шапке Предполагается, что в HTML есть <nav id="header-nav"></nav>
+    const profileName = document.getElementById("profileName");
+    if (profileName) {
+        profileName.textContent = user.name;
+    }
+    document.getElementById("status").textContent = `Welcome: ${user.name || "User"}`;
+    document.getElementById("userEmail").textContent = user.email || "...@gmail.com";
+
     nav.innerHTML = allowed // Генерируем HTML для разрешённых пунктов меню
         .map(item => `<a href="${item.href}">${item.label}</a>`)
         .join(""); // Объединяем все ссылки в одну строку
