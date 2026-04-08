@@ -32,7 +32,7 @@ export function createHeader() {
     profileToggle.id = 'profileToggle';
     const imgDiv = document.createElement('div');  // Плейсхолдер для изображения профиля
     const profileImg = document.createElement('img');  // Элемент изображения профиля
-    profileImg.src = '/appWrite/public/img/wolf.jpg';  // Плейсхолдер источника изображения, замените на реальный URL изображения профиля пользователя
+    profileImg.src = './appWrite/public/img/wolf.jpg';  // Плейсхолдер источника изображения, замените на реальный URL изображения профиля пользователя
     profileImg.alt = 'Profile Picture';
     const userNameDiv = document.createElement('div');   // Контейнер для имени пользователя
     const userNameP = document.createElement('p');  // Элемент с именем пользователя
