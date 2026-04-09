@@ -39,4 +39,28 @@ function filterMenuByRole(menuItems, userRoles) { //UserRoles is an array of rol
         .map(item => `<a href="${item.href}">${item.label}</a>`)
         .join(""); // Объединяем все ссылки в одну строку
  }
+
+ export async function renderFooter() {
+    const result = await databases.listDocuments(
+       MDBID,                //database ID
+        'footer_menu',        // collection ID
+        [
+            query.orderAsc("column"),
+            query.orderAsc("order")
+        ]
+    ); 
+    const footerItems = result.document;
+    console.log("Footer items loaded:", footerItems);
+
+    //Groop by column
+    const columns = {
+        1: [],
+        2: [],
+        3: []
+    };
+
+    footerItems.forEach(item => {
+        columns[item.column].push(item);
+    });
+ }
  

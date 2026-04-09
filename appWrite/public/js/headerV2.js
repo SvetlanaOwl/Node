@@ -58,7 +58,7 @@ export function createHeader() {
                     <div id="profileWrapper" class="relative">
                         <div id="profileToggle" class="flex items-center gap-3 cursor-pointer select-none">
                             <div class="w-9 h-9 rounded-2xl overflow-hidden border-2 border-white shadow-sm">
-                                <img src="./appWrite/public/img/wolf.jpg"
+                                <img src="./img/wolf.jpg"
                                 alt="Profile Picture"
                                 class="w-full h-full object-cover">
                             </div>
@@ -71,7 +71,7 @@ export function createHeader() {
                     
                         <!-- Profile Dropdown Menu -->
                         <div id="profileMenu" class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg py-2 border border-gray-200 hidden">
-                            <a href="./appWrite/public/profile.html" 
+                            <a href="./profile.html" 
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 Profile
                             </a>
