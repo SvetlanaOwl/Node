@@ -16,7 +16,7 @@ export function createProfileCard() {
                     <!-- Profile Picture -->
                     <div class="w-32 h-32 rounded-2xl overflow-hidden border-4 border-white shadow-lg">
                     <img id="profilePic"
-                        src="./appWrite/public/img/wolf.jpg"
+                        src="./img/wolf.jpg"
                         alt="Profile Picture"
                         class="w-full h-full object-cover">
                     </div>

@@ -44,14 +44,18 @@ export function createHeader() {
                         <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
                     </div>
 
-                    <!-- Notifications -->
-                    <button id="notificationsBtn"
-                            class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-2xl transition-colors relative">
-                        <i class="fas fa-bell text-xl"></i>
-                        <span id="notificationCount"
-                            class="absolute top-2 right-2 w-4 h-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full">
-                            3
-                        </span>
+                    <!-- Night mode toggle -->
+                    <button id="themeToggle" class="p-2 rounded">
+                        <!-- Light mode icon (moon) -->
+                        <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+                        </svg>
+                        <!-- Dark mode icon (sun) -->
+                        <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414" />
+                        </svg>
                     </button>
 
                     <!-- Profile -->
