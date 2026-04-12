@@ -11,7 +11,7 @@ export function createHeader() {
 
     // Main header structure using template literal (much cleaner)
     headerSection.innerHTML = `
-        <header class="bg-white shadow-sm border-b border-gray-100">
+        <header class="bg-white shadow-sm border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
             <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
                 <!-- Logo -->
@@ -21,13 +21,13 @@ export function createHeader() {
                     shadow-inner transition-transform group-hover:scale-105">
                     W
                 </div>
-                <span class="font-semibold text-2xl tracking-tight text-gray-800 group-hover:text-gray-900">
+                <span class="font-semibold text-2xl tracking-tight text-gray-800 group-hover:text-gray-900 dark:text-slate-500 dark:group-hover:text-slate-400">
                     Wolf&Owl Hub
                 </span>
                 </a>
 
                 <!-- Navigation -->
-                <nav id="header-nav" class="hidden md:flex items-center gap-8 text-gray-600 font-medium">
+                <nav id="header-nav" class="hidden md:flex items-center gap-8 text-gray-600 dark:text-slate-400 font-medium">
                 <!-- You can populate this dynamically if needed -->
                 </nav>
 
@@ -40,7 +40,8 @@ export function createHeader() {
                             type="text"
                             id="searchInput"
                             placeholder="Search users…"
-                            class="bg-gray-100 border border-transparent focus:border-gray-300 w-72 pl-10 py-2.5 rounded-3xl text-sm focus:outline-none">
+                            class="bg-gray-100 border border-transparent focus:border-gray-300 w-72 pl-10 py-2.5 
+                            rounded-3xl text-sm focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:focus:border-gray-500">
                         <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
                     </div>
 
@@ -52,7 +53,7 @@ export function createHeader() {
                             d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
                         </svg>
                         <!-- Dark mode icon (sun) -->
-                        <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414" />
                         </svg>
@@ -67,20 +68,20 @@ export function createHeader() {
                                 class="w-full h-full object-cover">
                             </div>
                             <div class="hidden md:block">
-                                <p id="profileName" class="text-sm font-semibold text-gray-800 leading-none">
+                                <p id="profileName" class="text-sm font-semibold text-gray-800 leading-none dark:text-slate-500">
                                 Username
                                 </p>
                             </div>
                         </div>
                     
                         <!-- Profile Dropdown Menu -->
-                        <div id="profileMenu" class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg py-2 border border-gray-200 hidden">
+                        <div id="profileMenu" class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg py-2 border border-gray-200 hidden dark:bg-gray-700 dark: border-gray-600">
                             <a href="./profile.html" 
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-gray-600">
                                 Profile
                             </a>
                             <button id="logoutBtn" 
-                                class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-gray-600">
                                 Logout
                             </button>
                         </div>

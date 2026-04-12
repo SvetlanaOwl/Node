@@ -10,7 +10,8 @@
     <script src="./js/tailwind.config.js"></script>
     
 </head>
-<body class="bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5]"> <!-- Background gradient -->
+<!--<body class="bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5]">-->
+    <body class="bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5] dark:from-gray-950 dark:to-gray-900"> <!-- Background gradient -->
     <div id="headerSection"></div> <!-- Header populated by headerV2.js -->
     <div id="profileSection"></div> <!-- Profile card populated by profile.js -->
     <div id="footerSection"></div> <!-- Footer populated by footer.js -->
@@ -22,8 +23,8 @@
     //import { createFooter } from './js/footer.js';
     //import { renderFooter } from './js/menu.js';
 
-    themeSwitcher();
     createHeader();
+    themeSwitcher();
     createProfileCard();
     //createFooter();
     //renderFooter();
