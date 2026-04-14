@@ -32,13 +32,46 @@ function filterMenuByRole(menuItems, userRoles) { //UserRoles is an array of rol
     if (profileName) {
         profileName.textContent = user.name;
     }
-    document.getElementById("status").textContent = `Welcome: ${user.name || "User"}`;
-    document.getElementById("userEmail").textContent = user.email || "...@gmail.com";
+    //document.getElementById("status").textContent = `Welcome: ${user.name || "User"}`;
+    //document.getElementById("userEmail").textContent = user.email || "...@gmail.com";
 
     nav.innerHTML = allowed // Генерируем HTML для разрешённых пунктов меню
         .map(item => `<a href="${item.href}">${item.label}</a>`)
         .join(""); // Объединяем все ссылки в одну строку
  }
+
+ export async function renderProfileData() {
+    const user = await account.get()
+    .then(response => {
+        console.log('User Account:', response);
+        document.getElementById("welcomeMessage").textContent = `Welcome: ${response.name}`;
+        document.getElementById("userEmail").textContent = `Email: ${response.email}`;
+        document.getElementById("userStatus").innerText = `Current status: ${response.status ? "on" : "off"}`;
+        document.getElementById("userRole").textContent = `Role: ${response.prefs.roles}`;
+        //document.getElementById("emailVerification").textContent = `Email Verified: ${response.emailVerification}`;
+        document.getElementById("emailVerification").textContent = `Email Verified: ${response.emailVerification ? "Yes" : "No"}`;
+        const localRegistration = new Date(response.registration).toLocaleString();
+        document.getElementById("registrationDate").textContent = `Registered on: ${localRegistration}`;
+    })
+    
+    .catch(error => {
+        console.log('User not logged in:', error);
+    });
+}
+    //welcomeMessage.textContent = user.name;
+    //welcomeMessage.textContent = `Welcome: ${user.name}`;
+    
+ 
+//Function to check if the user is logged in and display their status
+//export async function checkUserStatus() {
+   // account.get()
+   // .then(response => {
+   //     console.log('User Account:', response);
+   // })
+   // .catch(error => {
+   //     console.log('User not logged in:', error);
+   // });
+//}
 
  export async function renderFooter() {
     const result = await databases.listDocuments(
