@@ -58,21 +58,7 @@ function filterMenuByRole(menuItems, userRoles) { //UserRoles is an array of rol
         console.log('User not logged in:', error);
     });
 }
-    //welcomeMessage.textContent = user.name;
-    //welcomeMessage.textContent = `Welcome: ${user.name}`;
-    
- 
-//Function to check if the user is logged in and display their status
-//export async function checkUserStatus() {
-   // account.get()
-   // .then(response => {
-   //     console.log('User Account:', response);
-   // })
-   // .catch(error => {
-   //     console.log('User not logged in:', error);
-   // });
-//}
-
+   //Connect to appWrite and fetch items from the footer_menu table
  export async function renderFooter() {
     const result = await databases.listDocuments(
        MDBID,                //database ID
@@ -86,14 +72,45 @@ function filterMenuByRole(menuItems, userRoles) { //UserRoles is an array of rol
     console.log("Footer items loaded:", footerItems);
 
     //Groop by column
-    const columns = {
-        1: [],
-        2: [],
-        3: []
-    };
+    const columns = {1: [], 2: [], 3: []};
 
     footerItems.forEach(item => {
-        columns[item.column].push(item);
+        if (columns[item.column]) {
+            columns[item.column].push(item);
+        }
     });
+    //Sort each column by order
+    Object.values(columns).forEach(col =>
+        col.sort((a, b) => a.order - b. order)
+    );
+    return columns; //<-IMPORTANT
  }
- 
+// Loads 3 footer menu in 3 columns
+export async function loadFooterMenu() {
+    const columns = await renderFooter(); // fetch + group
+
+    for (let col = 1; col <= 3; col++) {
+        const container = document.getElementById(`footer-col-${col}`);
+        const items = columns[col];
+
+        if (!items || items.length === 0) continue;
+
+        const title = items.find(i => i.title)?.title ?? "";
+
+        container.innerHTML = `
+            <div class="px-4">
+                <h3 class="font-semibold text-gray-800 dark:text-gray-500 mb-4">${title}</h3>
+                <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+                    ${items.map(item => `
+                        <li>
+                            <a href="${item.href}" 
+                               class="hover:text-gray-900 dark:hover:text-gray-200 transition-colors">
+                                ${item.label}
+                            </a>
+                        </li>
+                    `).join("")}
+                </ul>
+            </div>
+        `;
+    }
+}
