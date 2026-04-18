@@ -68,7 +68,7 @@ function filterMenuByRole(menuItems, userRoles) { //UserRoles is an array of rol
             query.orderAsc("order")
         ]
     ); 
-    const footerItems = result.document;
+    const footerItems = result.documents;
     console.log("Footer items loaded:", footerItems);
 
     //Groop by column
