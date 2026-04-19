@@ -28,4 +28,18 @@ export async function logout() {
         }
     });
 }
+//Function to update currently logged in usser account name
+export async function updateAccountName(newName) {
+    const updateNameButton = document.getElementById("updateNameBtn");
+   
+    updateNameButton.addEventListener("click", async () => {
+    const newName = document.getElementById("newName").value;
+    try {
+        const updateAccount = await account.updateName(newName);
+        window.location.reload();
+    } catch (err) {
+        console.error("Error updating account name:", err.message);
+    }
+});
+}   
 

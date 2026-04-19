@@ -1,6 +1,7 @@
 import { renderHeader } from './menu.js';
 import { initProfileMenu } from './profileMenu.js';
 import { logout } from './appwriteUtils.js';
+import { burgerMenu } from './burgerMenu.js';
 
 export function createHeader() {
     const headerSection = document.getElementById('headerSection');
@@ -74,18 +75,44 @@ export function createHeader() {
                             </div>
                         </div>
                     
-                        <!-- Profile Dropdown Menu -->
-                        <div id="profileMenu" class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg py-2 border border-gray-200 hidden dark:bg-gray-700 dark: border-gray-600">
+                        <!-- Profile Dropdown -->
+                        <div id="profileMenu" class="absolute right-0 mt-3 w-48 bg-white shadow-xl rounded-2xl py-2 border border-gray-100 hidden dark:bg-gray-800 dark:border-gray-700">
+
                             <a href="./profile.html" 
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-gray-600">
+                            class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-100 dark:text-slate-300 dark:hover:bg-gray-700 transition-colors">
                                 Profile
                             </a>
+
                             <button id="logoutBtn" 
-                                class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-gray-600">
+                                    class="w-full text-left block px-5 py-2.5 text-sm text-red-600 hover:bg-gray-100 dark:text-red-400 dark:hover:bg-gray-700 transition-colors">
                                 Logout
                             </button>
                         </div>
                     </div>
+
+                    <!-- Hamburger Menu Button -->
+                    <button id="mobileMenuBtn" 
+                            class="md:hidden p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-bars text-xl text-gray-700 dark:text-slate-300"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+                <nav id="mobile-nav" class="flex flex-col gap-4 text-gray-600 dark:text-slate-400 font-medium">
+                    <!-- You can populate this dynamically (same links as desktop) -->
+                </nav>
+        
+                <!-- Mobile Search -->
+                <div class="relative mt-6 md:hidden">
+                    <input 
+                        type="text" 
+                        id="mobileSearchInput"
+                         placeholder="Search users..."
+                        class="bg-gray-100 border border-transparent focus:border-gray-300 w-full pl-10 py-3 rounded-3xl 
+                        text-sm focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:focus:border-gray-500">
+                        
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
                 </div>
             </div>
         </header>
@@ -95,4 +122,6 @@ export function createHeader() {
     renderHeader();
     initProfileMenu();
     logout();
+    burgerMenu();
 }
+
