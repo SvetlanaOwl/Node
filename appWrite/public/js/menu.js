@@ -20,7 +20,7 @@ function filterMenuByRole(menuItems, userRoles) { //UserRoles is an array of rol
         // Если у пункта меню указаны роли — показываем только если у пользователя есть хотя бы одна из этих ролей
     );
 }
-// Функция для рендеринга меню в шапке сайта с учётом ролей пользователя
+/*// Функция для рендеринга меню в шапке сайта с учётом ролей пользователя
  export async function renderHeader() { // Получаем текущего пользователя
     const user = await account.get();// Предполагается, что пользователь авторизован и у него есть поле 'prefs.roles',
     // которое содержит массив ролей
@@ -38,7 +38,34 @@ function filterMenuByRole(menuItems, userRoles) { //UserRoles is an array of rol
     nav.innerHTML = allowed // Генерируем HTML для разрешённых пунктов меню
         .map(item => `<a href="${item.href}">${item.label}</a>`)
         .join(""); // Объединяем все ссылки в одну строку
- }
+ }*/
+
+// Функция для рендера меню в шапке сайта на основе ролей пользователя
+export async function renderHeader() {     // Получаем текущего пользователя
+    const user = await account.get();     // Предполагается, что пользователь авторизован и 
+    // у него есть поле 'prefs.roles', которое содержит массив ролей
+    const userRoles = user?.prefs?.roles || [];    
+    const menuItems = await loadMenu();     // Загружаем пункты меню из базы данных
+    const allowed = filterMenuByRole(menuItems, userRoles);  // Фильтруем меню в зависимости от ролей пользователя  
+    
+    const menuHTML = allowed // Генерируем HTML для разрешённых пунктов меню
+        .map(item => `<a href="${item.href}">${item.label}</a>`)
+        .join("");
+
+    const desktopMenu = document.querySelector("#header-nav"); // Десктопное меню: <nav id="header-nav"></nav>
+    if (desktopMenu) desktopMenu.innerHTML = menuHTML;
+
+    const mobileNav = document.querySelector("#mobile-nav");// Мобильное меню: <nav id="mobile-nav"></nav>
+    if (mobileNav) {
+        mobileNav.innerHTML = menuHTML;
+        mobileNav.offsetHeight; // фикс перерисовки для Safari
+    }
+
+    const profileName = document.getElementById("profileName");// Имя пользователя в шапке
+    if (profileName) {
+        profileName.textContent = user.name;
+    }
+}
 
  export async function renderProfileData() {
     const user = await account.get()
