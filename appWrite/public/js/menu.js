@@ -114,16 +114,17 @@ export async function renderHeader() {     // Получаем текущего 
  }
 // Loads 3 footer menu in 3 columns
 export async function loadFooterMenu() {
+    // Загружаем и группируем пункты меню футера из базы данных
     const columns = await renderFooter(); // fetch + group
-
+    // Проходим по всем трём колонкам
     for (let col = 1; col <= 3; col++) {
         const container = document.getElementById(`footer-col-${col}`);
         const items = columns[col];
-
+        // Если в колонке нет пунктов — пропускаем
         if (!items || items.length === 0) continue;
-
+        // Получаем заголовок колонки (если есть документ с title)
         const title = items.find(i => i.title)?.title ?? "";
-
+        // Генерируем HTML для текущей колонки
         container.innerHTML = `
             <div class="px-4">
                 <h3 class="font-semibold text-gray-800 dark:text-gray-500 mb-4">${title}</h3>
