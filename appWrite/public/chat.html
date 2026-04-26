@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat room</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Include the Appwrite Web SDK via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@23.0.0"></script>
+    <script src="./js/tailwind.config.js"></script>
+</head>
+
+<body class="bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5] dark:bg-gradient-to-r dark:from-[#0f766e] dark:to-[#1e3a8a]">
+
+    <div class="flex flex-col h-full">
+        <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-2"></div>
+
+        <form id="chat-form" class="p-4 flex gap-2 border-t dark:border-gray-700">
+            <input id="chat-input"
+                class="flex-1 p-2 rounded border dark:bg-gray-900 dark:border-gray-700"
+                placeholder="Type a message..."
+                autocomplete="off">
+                <button class="px-4 py-2 bg-blue-600 text-white rounded">Send</button>
+        </form>
+    </div>
+
+</body>
+
+<script type="module"></script>
+
+</html>
