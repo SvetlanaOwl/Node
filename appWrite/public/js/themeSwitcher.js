@@ -13,7 +13,7 @@ export function themeSwitcher() {
     }
 
     // Toggle theme on click
-    document.getElementById('themeToggle').addEventListener('click', () => {
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
         document.documentElement.classList.toggle('dark');
 
         const isDark = document.documentElement.classList.contains('dark');
