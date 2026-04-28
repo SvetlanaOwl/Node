@@ -82,8 +82,24 @@ function renderMessage(msg) {
 
     // Заполняем внутренний HTML элемента информацией о сообщении
     div.innerHTML = `
-    <div class="text-xs opacity-60">${msg.username}</div>
+    <!--<div class="text-xs opacity-60">${msg.username}</div>-->
+    <div class='flex items-center gap-2 text-xs opasity-60'>
+        <!--Avatar-->
+        <div class='w-6 h-6 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-[10px] font-semibold'>
+            ${msg.username?.charAt(0).toUpperCase()}
+        </div>
+
+        <!--Icon BEFORE username-->
+        <i class='fa-solid fa-heart text-red-400'></i>
+
+        <!--Username-->
+        <span>${msg.username}</span>
+
+        <!--Icon AFTER username-->
+        <i class='fa-solid fa-star text-green-500'></i>
+    </div>
     <div>${msg.body}</div>
+    <div class='text-[.45rem] dark:text-red-300'>${msg.$createdAt}</div>
     `;
 
     container.appendChild(div); // Добавляем созданный элемент в контейнер сообщений
