@@ -13,18 +13,24 @@
     <script src="./js/tailwind.config.js"></script>
 </head>
 
-<body class="bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5] dark:bg-gradient-to-r dark:from-[#0f766e] dark:to-[#1e3a8a]">
+<body class="bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5] dark:bg-gradient-to-r 
+            dark:from-[#0f766e] dark:to-[#1e3a8a] h-screen overflow-hidden">
 
     <div class="flex flex-col h-full">
         <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-2"></div>
 
+        <div class="border-t dark:border-gray-700 bg-white dark:bg-gray-900 p-4 flex-shrink-0"> 
         <form id="chat-form" class="p-4 flex gap-2 border-t dark:border-gray-700">
             <input id="chat-input"
                 class="flex-1 p-2 rounded border dark:bg-gray-900 dark:border-gray-700 text-red-500"
                 placeholder="Type a message..."
                 autocomplete="off">
-            <button class="px-4 py-2 bg-blue-600 text-white rounded">Send</button>
+            <button class="px-4 py-2 bg-blue-600 text-white rounded">
+                <span>Send</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </form>
+        </div>
     </div>
 
 </body>

@@ -1,4 +1,5 @@
 import { account  } from "./appwriteClient.js";
+import { uploadAvatar } from "./avatarUpload.js";
 
 //Function to handle user login
 export async function login() {
@@ -41,5 +42,21 @@ export async function updateAccountName(newName) {
         console.error("Error updating account name:", err.message);
     }
 });
-}   
+}
+// Функция слушатель для загрузки и смены аватара в шапке и профиле
+export async function setAvatar() {
+    const avatarImg = document.querySelector('#profilePic'); // Изображение профиля в profile.js
+    const avatarInput = document.querySelector('#avatarInput'); // Скрытый input для загрузки аватара
 
+    avatarImg.addEventListener('click', () => avatarInput.click()); // При клике на фото профиля открываем выбор файла
+
+    avatarInput.addEventListener('change', async (e) => { // Слушаем выбор файла
+        const file = e.target.files[0]; // Получаем выбранный файл и помещаем его в массив
+        if (!file) return; // Если файл не выбран, выходим из функции
+
+        const newUrl = await uploadAvatar(file); // Загружаем аватар и получаем новый URL
+
+        // Обновляем изображение профиля в интерфейсе мгновенно
+        avatarImg.src = newUrl;
+    });
+}

@@ -1,4 +1,5 @@
 import { renderProfileData  } from "./menu.js";
+import { setAvatar } from "./appwriteUtils.js";
 
 export function createProfileCard() {
     const profileCardSection = document.getElementById('profileSection');
@@ -22,7 +23,8 @@ export function createProfileCard() {
                     <img id="profilePic"
                         src="./img/wolf.jpg"
                         alt="Profile Picture"
-                        class="w-full h-full object-cover">
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duretion-300 cursor-pointer">
+                        <input type="file" id="avatarInput" accept="image/*" class="hidden">
                     </div>
                 </div>
             </div>
@@ -77,4 +79,5 @@ export function createProfileCard() {
     </div>
     `;
     renderProfileData();
+    setAvatar();
 }
