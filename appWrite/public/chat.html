@@ -14,7 +14,7 @@
     body { font-family: system-ui, -apple-system, sans-serif; }
     .chat-container {
         background-image: 
-            inear-gradient(rgba(255,255,255,0.25), rgba(116, 235, 213, 0.35)),
+            linear-gradient(rgba(255,255,255,0.25), rgba(116, 235, 213, 0.35)),
                 url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070');
         background-size: cover;
         background-position: center;
@@ -109,8 +109,8 @@
                     </div>
                 </div>
                 <div id="animatedEmoji-panel" class="absolute hidden bg-white dark:bg-gray-800 p-2 rounded 
-                    shadow-lg border border-gray-200 dark:border-gray-700 z-50 w-64">
-                        <div class="flex gap-2 text-xl cursor-pointer select-none">
+                    shadow-lg border border-gray-200 dark:border-gray-700 z-50 w-64 max-h-80 overflow-y-auto">
+                        <div class="flex flex-wrap gap-2 text-xl cursor-pointer select-none">
                             <span><img src="./img/anime/icons8-heart.webp" class="w-6 h-6" data-emoji="heart"></span>
                             <span><img src="./img/anime/icons8-kiss-panda.webp" class="w-6 h-6" data-emoji="kiss-panda"></span>
                             <span><img src="./img/anime/icons8-star.webp" class="w-6 h-6" data-emoji="star"></span>

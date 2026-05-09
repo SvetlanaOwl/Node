@@ -24,11 +24,11 @@ export function simulateChat() {
     //Обработка отправки сообщения
     chatForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const msg = chatInput.value.trim();
+        const msg = chatInput.innerHTML.trim();
         if (!msg) return;
 
         addMessage(msg);
-        chatInput.value = '';
+        chatInput.innerHTML = '';
 
         // Симуляция ответа от другого пользователя
         setTimeout(() => {
