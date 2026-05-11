@@ -60,3 +60,31 @@ export async function setAvatar() {
         avatarImg.src = newUrl;
     });
 }
+
+// Сохранение цвета ника пользователя
+export async function saveNicknameColor(color) {
+    try {
+        const prefs = await account.getPrefs();        // получаем текущие настройки
+
+        prefs.nicknameColor = color;                   // добавляем/меняем цвет
+
+        await account.updatePrefs(prefs);              // сохраняем в Appwrite
+
+        console.log('Цвет ника сохранён:', color);
+        return true;
+    } catch (error) {
+        console.error('Ошибка сохранения цвета:', error);
+        return false;
+    }
+}
+
+// Получение цвета ника пользователя
+export async function getNicknameColor(defaultColor = '#60a5fa') {
+    try {
+        const prefs = await account.getPrefs();
+        return prefs.nicknameColor || defaultColor;
+    } catch (error) {
+        console.error('Ошибка получения цвета ника:', error);
+        return defaultColor;
+    }
+}
